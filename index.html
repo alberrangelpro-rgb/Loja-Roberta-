@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loja Roberta — Moda Fitness Feminina</title>
+  <meta name="description" content="Loja Roberta: roupas de academia femininas — leggings, tops, conjuntos e mais. Treine com estilo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Início">
+        <span class="logo__mark" id="logoMark">R</span>
+        <span id="logoNome">Loja Roberta</span>
+      </a>
+      <nav class="nav">
+        <a href="#loja">Loja</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="cart-btn" id="abrirCarrinho" aria-label="Abrir carrinho">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-btn__count" id="contadorCarrinho" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <span class="pill">✨ Nova coleção disponível</span>
+        <h1>Treine com estilo, <br />vista-se de atitude.</h1>
+        <p id="heroTagline">Moda fitness feminina pensada para o seu corpo e o seu treino. Conforto, compressão e muito estilo.</p>
+        <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#loja" class="btn btn--primary btn--lg">Ver coleção</a>
+          <a href="#sobre" class="btn btn--ghost btn--lg">Conheça a marca</a>
+        </div>
+      </div>
+      <div class="hero__art">
+        <span>💪 Feita para se movimentar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LOJA ===================== -->
+  <main class="shop" id="loja">
+    <div class="container">
+      <div class="shop__head">
+        <div class="filtros" id="filtros"><!-- chips de categoria via JS --></div>
+        <div class="busca">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="busca" placeholder="Buscar produto..." aria-label="Buscar produto" />
+        </div>
+      </div>
+      <div class="grid" id="grade"><!-- cards via JS --></div>
+    </div>
+  </main>
+
+  <!-- ===================== SOBRE ===================== -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <h2>Por que a Loja Roberta?</h2>
+      <p style="color:var(--cor-texto-suave); max-width:56ch;">Moda fitness feminina com curadoria de peças que unem tecnologia, caimento e preço justo. Cada peça é escolhida para acompanhar você da academia à vida real.</p>
+      <div class="sobre__grid">
+        <div class="feature">
+          <div class="feature__ic">🚚</div>
+          <h3>Entrega para todo o Brasil</h3>
+          <p style="color:var(--cor-texto-suave); font-size:0.92rem;">Frete grátis nas compras acima do valor mínimo. Enviamos com rastreio.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__ic">💗</div>
+          <h3>Feito para o corpo feminino</h3>
+          <p style="color:var(--cor-texto-suave); font-size:0.92rem;">Modelagens que valorizam e não marcam, do P ao GG.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__ic">🔄</div>
+          <h3>Troca fácil</h3>
+          <p style="color:var(--cor-texto-suave); font-size:0.92rem;">Não serviu? A gente troca. Sem complicação, sem letra miúda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" id="contato">
+    <div class="container footer__inner">
+      <div>
+        <strong id="footerNome">Loja Roberta</strong>
+        <p style="margin:6px 0 0; font-size:0.9rem;">Moda fitness feminina 💪</p>
+      </div>
+      <div style="font-size:0.9rem;">
+        <p style="margin:0 0 4px;">📱 WhatsApp: <a href="#" id="footerWhats">(00) 00000-0000</a></p>
+        <p style="margin:0;">📷 Instagram: <span id="footerInsta">@lojaroberta</span></p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:20px; font-size:0.8rem; opacity:0.6;">
+      © <span id="ano"></span> Loja Roberta. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- ===================== DRAWER CARRINHO ===================== -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Carrinho de compras">
+    <div class="drawer__head">
+      <h3 style="margin:0;">Seu carrinho</h3>
+      <button class="drawer__close" id="fecharCarrinho" aria-label="Fechar carrinho">×</button>
+    </div>
+    <div class="drawer__body" id="carrinhoItens"><!-- itens via JS --></div>
+    <div class="drawer__foot" id="carrinhoFoot"><!-- resumo + checkout via JS --></div>
+  </aside>
+
+  <!-- ===================== TOAST ===================== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
