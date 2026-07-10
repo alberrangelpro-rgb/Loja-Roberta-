@@ -1,6 +1,6 @@
-# Loja Roberta 💪💗
+# mova. action 💪
 
-Site de uma loja feminina de roupas de academia (moda fitness): catálogo de produtos,
+Site da **mova.** — loja feminina de roupas de academia (moda fitness): catálogo de produtos,
 carrinho de compras e finalização do pedido pelo **WhatsApp**.
 
 Feito em **HTML, CSS e JavaScript puro** — sem dependências, sem build. É só abrir e usar.
@@ -34,13 +34,17 @@ valor para frete grátis.
 
 ```js
 window.CONFIG = {
-  storeName: "Loja Roberta",
+  storeName: "mova.",
   whatsappNumber: "5585999999999", // código do país + DDD + número, só dígitos
   currency: "R$",
   freeShippingFrom: 199.9,
-  instagram: "@lojaroberta",
+  instagram: "@mova.action",
 };
 ```
+
+> A logo fica em `assets/mova-logo.jpg` (usada no topo e como favicon). Para trocar a
+> imagem, substitua esse arquivo. A cor da marca (`#8b687e`) já está aplicada no `:root`
+> do `css/styles.css`.
 > O número do WhatsApp usa o formato internacional só com dígitos:
 > `55` (Brasil) + `85` (DDD) + `99999-9999` → `5585999999999`.
 

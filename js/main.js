@@ -35,7 +35,7 @@
       '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400">' +
       '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
       '<stop offset="0" stop-color="' + cor + '"/>' +
-      '<stop offset="1" stop-color="#7048e8"/></linearGradient></defs>' +
+      '<stop offset="1" stop-color="#6e5162"/></linearGradient></defs>' +
       '<rect width="300" height="400" fill="url(#g)"/>' +
       '<text x="150" y="200" fill="rgba(255,255,255,0.9)" font-family="Poppins,sans-serif" ' +
       'font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="middle">' +
@@ -241,9 +241,7 @@
   // ---------- Aplicar config no texto do site ----------
   function aplicarConfig() {
     if (cfg.storeName) {
-      $("#logoNome").textContent = cfg.storeName;
       $("#footerNome").textContent = cfg.storeName;
-      $("#logoMark").textContent = cfg.storeName.trim().charAt(0).toUpperCase() || "R";
       document.title = cfg.storeName + " — Moda Fitness Feminina";
     }
     if (cfg.storeTagline) $("#heroTagline").textContent = cfg.storeTagline;

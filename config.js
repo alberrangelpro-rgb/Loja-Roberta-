@@ -10,10 +10,10 @@
    - freeShippingFrom: valor a partir do qual o frete é grátis (0 = desativa o aviso).
    ===================================================================== */
 window.CONFIG = {
-  storeName: "Loja Roberta",
-  storeTagline: "Moda fitness feminina para treinar com estilo",
+  storeName: "mova.",
+  storeTagline: "Moda fitness feminina para você vestir o movimento com atitude.",
   whatsappNumber: "5585999999999", // <-- TROQUE pelo número real da loja
   currency: "R$",
   freeShippingFrom: 199.9,
-  instagram: "@lojaroberta",
+  instagram: "@mova.action",
 };

@@ -4,15 +4,15 @@
    >>> PARA TROCAR AS CORES DA MARCA, edite APENAS o bloco :root abaixo. <<<
    ===================================================================== */
 :root {
-  /* ---- Paleta da marca (placeholder — substitua pelas cores da loja) ---- */
-  --cor-primaria: #d6336c;        /* rosa principal (botões, destaques) */
-  --cor-primaria-escura: #a61e4d; /* hover dos botões */
-  --cor-secundaria: #7048e8;      /* roxo de apoio (gradientes) */
+  /* ---- Paleta da marca mova. (mauve — cor da logo #8b687e) ---- */
+  --cor-primaria: #8b687e;        /* mauve principal (botões, destaques) */
+  --cor-primaria-escura: #6e5162; /* hover dos botões */
+  --cor-secundaria: #b98aa6;      /* mauve claro/rosé de apoio (gradientes) */
   --cor-fundo: #ffffff;           /* fundo geral */
-  --cor-fundo-suave: #fdf2f6;     /* fundo de seções alternadas */
-  --cor-texto: #2b2b31;           /* texto principal */
-  --cor-texto-suave: #6b6b76;     /* texto secundário */
-  --cor-borda: #f0d9e2;           /* bordas suaves */
+  --cor-fundo-suave: #f6eef3;     /* fundo de seções alternadas */
+  --cor-texto: #2e2a2d;           /* texto principal */
+  --cor-texto-suave: #7a6f76;     /* texto secundário */
+  --cor-borda: #ecdde6;           /* bordas suaves */
   --cor-sucesso: #2f9e44;         /* preço promocional / frete grátis */
 
   /* ---- Tokens de layout (normalmente não precisa mexer) ---- */
@@ -63,17 +63,24 @@ a { color: inherit; text-decoration: none; }
 }
 .logo {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  gap: 0;
 }
-.logo__mark {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
-  display: grid; place-items: center;
-  color: #fff; font-weight: 700;
+.logo__word {
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+  color: var(--cor-primaria);
+}
+.logo__dot { color: var(--cor-secundaria); }
+.logo__script {
+  font-family: "Dancing Script", "Segoe Script", cursive;
+  font-size: 1.05rem;
+  color: var(--cor-texto-suave);
+  margin-top: -4px;
+  margin-left: 2px;
 }
 .nav {
   display: flex;
@@ -142,14 +149,12 @@ a { color: inherit; text-decoration: none; }
 }
 .hero p { font-size: 1.1rem; color: var(--cor-texto-suave); max-width: 46ch; }
 .hero__art {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   border-radius: var(--raio);
-  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  overflow: hidden;
   box-shadow: var(--sombra-forte);
-  display: grid; place-items: center;
-  color: #fff; text-align: center; padding: 24px;
 }
-.hero__art span { font-size: 1.4rem; font-weight: 700; }
+.hero__art img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Botões ---------- */
 .btn {
