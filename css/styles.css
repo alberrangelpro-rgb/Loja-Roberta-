@@ -211,8 +211,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 500; line-height: 1.08; text-wrap: bala
   -webkit-overflow-scrolling: touch;
 }
 .carousel__viewport::-webkit-scrollbar { display: none; }
-.carousel__track { display: flex; gap: 22px; width: max-content; padding: 6px 2px 10px; }
-.carousel__track .prod { flex: 0 0 clamp(220px, 72vw, 280px); }
+.carousel__track { display: flex; gap: 18px; width: max-content; padding: 6px 2px 10px; }
+.carousel__track .prod { flex: 0 0 clamp(160px, 52vw, 210px); }
 .carousel__track .prod__media img { user-select: none; -webkit-user-drag: none; }
 .carousel__nav {
   position: absolute; top: 34%; z-index: 6;

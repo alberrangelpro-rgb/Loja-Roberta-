@@ -188,7 +188,7 @@
   function nudge(dir) {
     var vp = $("#carViewport");
     var card = vp.querySelector(".prod");
-    var w = card ? card.getBoundingClientRect().width + 22 : 300;
+    var w = card ? card.getBoundingClientRect().width + 18 : 240;
     carPaused = true;
     vp.scrollBy({ left: dir * w, behavior: "smooth" });
     clearTimeout(nudgeTimer);
