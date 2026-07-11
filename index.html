@@ -90,7 +90,13 @@
           <input type="search" id="busca" placeholder="Buscar..." aria-label="Buscar produto" />
         </label>
       </div>
-      <div class="grid" id="grade"><!-- produtos via JS --></div>
+      <div class="carousel" id="carousel">
+        <button class="carousel__nav carousel__nav--prev" id="carPrev" aria-label="Ver anterior">‹</button>
+        <div class="carousel__viewport" id="carViewport">
+          <div class="carousel__track" id="grade"><!-- produtos via JS --></div>
+        </div>
+        <button class="carousel__nav carousel__nav--next" id="carNext" aria-label="Ver próximo">›</button>
+      </div>
     </div>
   </section>
 

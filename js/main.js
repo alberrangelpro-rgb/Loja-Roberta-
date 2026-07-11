@@ -111,56 +111,88 @@
     });
   }
 
+  function byId(id) {
+    return (window.PRODUTOS || []).filter(function (p) { return p.id === id; })[0];
+  }
+
+  /* HTML de um card de produto (usa data-attrs; cliques via delegação). */
+  function cardHTML(p) {
+    var temDesc = p.precoDe && p.precoDe > p.preco;
+    var pct = temDesc ? Math.round((1 - p.preco / p.precoDe) * 100) : 0;
+    if (tamanhoSelecionado[p.id] == null) tamanhoSelecionado[p.id] = p.tamanhos[0];
+    var sizes = p.tamanhos.map(function (t) {
+      return '<button type="button" data-id="' + p.id + '" data-size="' + esc(t) + '"' +
+        (tamanhoSelecionado[p.id] === t ? ' class="is-active"' : '') + '>' + esc(t) + '</button>';
+    }).join("");
+    return '<article class="prod">' +
+      '<div class="prod__media">' +
+        (temDesc ? '<span class="prod__flag">-' + pct + '%</span>' : '') +
+        '<img src="' + placeholder(p) + '" alt="' + esc(p.nome) + '" loading="lazy" draggable="false" />' +
+        '<button type="button" class="prod__add" data-id="' + p.id + '">Adicionar</button>' +
+      '</div>' +
+      '<div class="prod__cat">' + esc(p.categoria) + '</div>' +
+      '<div class="prod__name">' + esc(p.nome) + '</div>' +
+      '<div class="prod__price"><b>' + window.formatarPreco(p.preco) + '</b>' +
+        (temDesc ? '<s>' + window.formatarPreco(p.precoDe) + '</s>' : '') + '</div>' +
+      '<div class="prod__sizes">' + sizes + '</div>' +
+    '</article>';
+  }
+
   function renderGrade() {
-    var grade = $("#grade");
-    grade.innerHTML = "";
+    var track = $("#grade");
+    carouselStop();
     var lista = produtosFiltrados();
     if (lista.length === 0) {
-      grade.appendChild(el("div", "vazio", "Nada por aqui ainda…"));
+      track.innerHTML = '<div class="vazio">Nada por aqui ainda…</div>';
       return;
     }
+    track.innerHTML = lista.map(cardHTML).join("");
+    // configura o auto-scroll depois do layout medir as larguras
+    requestAnimationFrame(setupCarousel);
+  }
 
-    lista.forEach(function (p) {
-      var temDesc = p.precoDe && p.precoDe > p.preco;
-      var art = el("article", "prod");
+  // ---------- Carrossel (auto-scroll contínuo) ----------
+  var carRAF = null, carPaused = false, carLoop = 0, carPos = 0, nudgeTimer = null;
 
-      var media = el("div", "prod__media");
-      if (temDesc) {
-        var pct = Math.round((1 - p.preco / p.precoDe) * 100);
-        media.appendChild(el("span", "prod__flag", "-" + pct + "%"));
+  function carouselStop() {
+    if (carRAF) { cancelAnimationFrame(carRAF); carRAF = null; }
+    carLoop = 0; carPos = 0;
+  }
+
+  function setupCarousel() {
+    var vp = $("#carViewport"), track = $("#grade");
+    if (!vp || !track) return;
+    // se o conteúdo cabe na tela, não precisa rodar
+    if (track.scrollWidth <= vp.clientWidth + 4) { carLoop = 0; return; }
+    // duplica o conjunto para um loop contínuo e sem emenda
+    track.innerHTML = track.innerHTML + track.innerHTML;
+    carLoop = track.scrollWidth / 2;
+    vp.scrollLeft = 0; carPos = 0;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var speed = 0.6; // acumulado por frame; ~36px/s
+    (function step() {
+      if (!carPaused && carLoop > 0) {
+        // scrollLeft é inteiro: acumula em float e soma pixels inteiros
+        carPos += speed;
+        if (carPos >= 1) {
+          var d = Math.floor(carPos);
+          vp.scrollLeft += d;
+          carPos -= d;
+          if (vp.scrollLeft >= carLoop) vp.scrollLeft -= carLoop;
+        }
       }
-      media.innerHTML += '<img src="' + placeholder(p) + '" alt="' + esc(p.nome) + '" loading="lazy" />';
-      var add = el("button", "prod__add", "Adicionar");
-      add.addEventListener("click", function () {
-        window.Cart.addItem(p.id, tamanhoSelecionado[p.id]);
-        toast(p.nome + " adicionado à sacola");
-      });
-      media.appendChild(add);
-      art.appendChild(media);
+      carRAF = requestAnimationFrame(step);
+    })();
+  }
 
-      art.appendChild(el("div", "prod__cat", esc(p.categoria)));
-      art.appendChild(el("div", "prod__name", esc(p.nome)));
-
-      var price = el("div", "prod__price");
-      price.appendChild(el("b", null, window.formatarPreco(p.preco)));
-      if (temDesc) price.appendChild(el("s", null, window.formatarPreco(p.precoDe)));
-      art.appendChild(price);
-
-      var sizes = el("div", "prod__sizes");
-      p.tamanhos.forEach(function (t, i) {
-        if (tamanhoSelecionado[p.id] == null && i === 0) tamanhoSelecionado[p.id] = t;
-        var tb = el("button", tamanhoSelecionado[p.id] === t ? "is-active" : null, esc(t));
-        tb.addEventListener("click", function () {
-          tamanhoSelecionado[p.id] = t;
-          sizes.querySelectorAll("button").forEach(function (x) { x.classList.remove("is-active"); });
-          tb.classList.add("is-active");
-        });
-        sizes.appendChild(tb);
-      });
-      art.appendChild(sizes);
-
-      grade.appendChild(art);
-    });
+  function nudge(dir) {
+    var vp = $("#carViewport");
+    var card = vp.querySelector(".prod");
+    var w = card ? card.getBoundingClientRect().width + 22 : 300;
+    carPaused = true;
+    vp.scrollBy({ left: dir * w, behavior: "smooth" });
+    clearTimeout(nudgeTimer);
+    nudgeTimer = setTimeout(function () { carPaused = false; }, 1200);
   }
 
   // ---------- Contador ----------
@@ -261,6 +293,43 @@
     renderGrade();
 
     $("#busca").addEventListener("input", function (e) { estado.busca = e.target.value; renderGrade(); });
+
+    // Cliques nos cards (delegação — funciona também nas cópias do carrossel)
+    $("#grade").addEventListener("click", function (e) {
+      var add = e.target.closest(".prod__add");
+      if (add) {
+        var id = parseInt(add.dataset.id, 10);
+        var p = byId(id);
+        window.Cart.addItem(id, tamanhoSelecionado[id]);
+        if (p) toast(p.nome + " adicionado à sacola");
+        return;
+      }
+      var sb = e.target.closest(".prod__sizes button");
+      if (sb) {
+        var pid = parseInt(sb.dataset.id, 10);
+        var size = sb.dataset.size;
+        tamanhoSelecionado[pid] = size;
+        $all('#grade .prod__sizes button[data-id="' + pid + '"]').forEach(function (b) {
+          b.classList.toggle("is-active", b.dataset.size === size);
+        });
+      }
+    });
+
+    // Carrossel: pausa ao interagir; setas ‹ ›
+    var car = $("#carousel");
+    if (car) {
+      ["mouseenter", "touchstart", "focusin"].forEach(function (ev) {
+        car.addEventListener(ev, function () { carPaused = true; }, { passive: true });
+      });
+      ["mouseleave", "touchend", "focusout"].forEach(function (ev) {
+        car.addEventListener(ev, function () { carPaused = false; }, { passive: true });
+      });
+      $("#carPrev").addEventListener("click", function () { nudge(-1); });
+      $("#carNext").addEventListener("click", function () { nudge(1); });
+    }
+    // recalcula o loop se a janela mudar de tamanho
+    var rz;
+    window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(renderGrade, 250); });
 
     window.Cart.onChange = function () { atualizarContador(); renderCarrinho(); };
     atualizarContador();
