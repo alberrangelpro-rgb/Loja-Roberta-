@@ -49,17 +49,20 @@ window.CONFIG = {
 > `55` (Brasil) + `85` (DDD) + `99999-9999` → `5585999999999`.
 
 ### 2. Cores da marca → `css/styles.css`
-No **topo do arquivo**, dentro de `:root`, troque as variáveis de cor:
+No bloco `:root` (logo após as fontes embutidas), troque as variáveis de cor:
 
 ```css
 :root {
-  --cor-primaria: #d6336c;        /* cor principal (botões, preços) */
-  --cor-primaria-escura: #a61e4d; /* hover dos botões */
-  --cor-secundaria: #7048e8;      /* cor de apoio (gradientes) */
+  --mauve:   #8b687e;  /* cor da marca (botões, destaques) */
+  --mauve-700: #6e5162;
+  --plum-900: #2b2026; /* texto / rodapé */
+  --paper:   #faf6f8;  /* fundo off-white */
   /* ... */
 }
 ```
-Só mexer aqui já muda a cara do site inteiro.
+Só mexer aqui já muda a cara do site inteiro. As fontes (Cormorant Garamond, Jost e
+Dancing Script) já vêm **embutidas** no próprio `styles.css` — o site não depende de
+internet nem do Google Fonts.
 
 ### 3. Produtos → `js/products.js`
 Edite o array `PRODUTOS`. Cada produto:
