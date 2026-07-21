@@ -99,20 +99,32 @@ Loja-Roberta-/
 │   ├── products.js   # 🛍️ catálogo de produtos
 │   ├── cart.js       # 🛒 lógica do carrinho + checkout WhatsApp
 │   └── main.js       # 🖥️ renderização e interação da interface
-├── admin/            # 🔒 painel de gestão (uso interno da loja)
+├── painel.html       # 🔒 PAINEL DE GESTÃO em arquivo único (abra este no iPad/PC)
+├── admin/            # 🔒 painel de gestão em arquivos separados (para editar/publicar)
 │   ├── index.html    #    tela do painel
 │   ├── admin.css     #    estilos do painel
 │   └── admin.js      #    estoque + financeiro (dados no navegador)
 └── README.md
 ```
 
+> `painel.html` é a versão **autossuficiente** (HTML+CSS+JS num só arquivo), gerada
+> a partir da pasta `admin/`. Se editar algo em `admin/`, regenere o `painel.html`.
+
 ---
 
 ## 🔒 Painel de gestão (Estoque & Financeiro)
 
 Além do site que o cliente vê, o projeto tem um **painel interno** para a dona da
-loja controlar **estoque, vendas, despesas e lucro**. É só abrir
-`admin/index.html` no navegador (ou acessar `.../admin/` se o site estiver publicado).
+loja controlar **estoque, vendas, despesas e lucro**.
+
+**Como acessar (jeito mais simples, sem internet):**
+
+Use o arquivo único **`painel.html`** — ele funciona sozinho, offline, no iPad ou no computador.
+
+- **No computador:** dê dois cliques em `painel.html` (abre no navegador).
+- **No iPad:** salve o `painel.html` no app **Arquivos** (ou iCloud Drive) e toque nele
+  para abrir no Safari. Dica: em *Compartilhar → Adicionar à Tela de Início* ele fica
+  com cara de aplicativo. Para levar o arquivo até o iPad, use **AirDrop**, e-mail ou iCloud.
 
 **Como funciona:**
 
