@@ -338,6 +338,33 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     pagamentos: ["Pix", "Dinheiro", "Cartão débito", "Cartão crédito", "Outro"],
   };
 
+  /* ------------------------------------------------------------------ *
+   *  ARMAZENAMENTO SEGURO
+   *  Alguns navegadores (Safari abrindo arquivo local, aba anônima)
+   *  BLOQUEIAM o localStorage e fazem setItem lançar erro. Sem tratar,
+   *  isso trava telas inteiras (ex.: o botão de criar senha). Aqui há
+   *  um teste de disponibilidade e um espelho em memória de fallback,
+   *  para o sistema nunca quebrar — apenas avisar que não vai salvar.
+   * ------------------------------------------------------------------ */
+  var mem = {};
+  var canPersist = false;
+  (function () {
+    try {
+      var t = "__mova_test__";
+      localStorage.setItem(t, "1");
+      localStorage.removeItem(t);
+      canPersist = true;
+    } catch (e) { canPersist = false; }
+  })();
+  function storeGet(k) {
+    try { if (canPersist) return localStorage.getItem(k); } catch (e) {}
+    return k in mem ? mem[k] : null;
+  }
+  function storeSet(k, v) {
+    try { if (canPersist) { localStorage.setItem(k, v); return true; } } catch (e) { canPersist = false; }
+    mem[k] = v; return false;
+  }
+
   var DB = load();
   var currentView = "dashboard";
 
@@ -346,7 +373,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
    * ------------------------------------------------------------------ */
   function load() {
     try {
-      var raw = localStorage.getItem(DB_KEY);
+      var raw = storeGet(DB_KEY);
       if (!raw) return clone(DEFAULT_DB);
       var data = JSON.parse(raw);
       // completa chaves que possam faltar de versões antigas
@@ -359,11 +386,8 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     }
   }
   function save() {
-    try {
-      localStorage.setItem(DB_KEY, JSON.stringify(DB));
-    } catch (e) {
-      toast("Erro ao salvar. O armazenamento pode estar cheio.", "err");
-    }
+    var ok = storeSet(DB_KEY, JSON.stringify(DB));
+    if (!ok) return; // modo memória: já avisado por banner; não incomoda a cada ação
   }
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
 
@@ -447,7 +471,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) >>> 0;
     return "h" + h.toString(16);
   }
-  function hasPassword() { return !!localStorage.getItem(AUTH_KEY); }
+  function hasPassword() { return !!storeGet(AUTH_KEY); }
 
   function setupLock() {
     var screen = document.getElementById("lockScreen");
@@ -464,6 +488,11 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
         hint.textContent = "Primeiro acesso: defina uma senha para proteger o painel.";
         btn.textContent = "Criar senha e entrar";
       }
+      if (!canPersist) {
+        err.hidden = false;
+        err.style.color = "var(--amber)";
+        err.innerHTML = "⚠️ Este navegador está com o armazenamento bloqueado — o painel abre e funciona, mas <b>os dados não serão salvos ao fechar</b>.";
+      }
     }
     refresh();
 
@@ -472,9 +501,9 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
       err.hidden = true;
       if (v.length < 4) { err.textContent = "Use pelo menos 4 caracteres."; err.hidden = false; return; }
       if (!hasPassword()) {
-        localStorage.setItem(AUTH_KEY, hash(v));
+        storeSet(AUTH_KEY, hash(v));
         unlock();
-      } else if (localStorage.getItem(AUTH_KEY) === hash(v)) {
+      } else if (storeGet(AUTH_KEY) === hash(v)) {
         unlock();
       } else {
         err.textContent = "Senha incorreta."; err.hidden = false;
@@ -1145,7 +1174,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
         var s1 = (f.get("s1") || "").trim(), s2 = (f.get("s2") || "").trim();
         if (s1.length < 4) { toast("Use pelo menos 4 caracteres.", "err"); return; }
         if (s1 !== s2) { toast("As senhas não conferem.", "err"); return; }
-        localStorage.setItem(AUTH_KEY, hash(s1));
+        storeSet(AUTH_KEY, hash(s1));
         closeModal();
         toast("Senha atualizada.", "ok");
       });
@@ -1191,8 +1220,16 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     backup: viewBackup,
   };
 
+  function bannerSemSalvar() {
+    if (canPersist) return "";
+    return '<div class="alert alert-amber" style="border-color:#e7b84d">' +
+      '<span>⚠️</span><div><b>Modo sem salvar.</b> Este navegador bloqueou o armazenamento, então tudo que você registrar aqui <b>some quando fechar a aba</b>. ' +
+      'Isso costuma acontecer no <b>Safari abrindo um arquivo baixado</b>. Para os dados ficarem salvos de verdade, o ideal é acessar o painel por um <b>link (site publicado)</b> em vez de um arquivo — fale com quem montou o sistema. ' +
+      'Enquanto isso, use a aba <b>Backup</b> para exportar antes de fechar.</div></div>';
+  }
+
   function render() {
-    document.getElementById("content").innerHTML = (VIEWS[currentView] || viewDashboard)();
+    document.getElementById("content").innerHTML = bannerSemSalvar() + (VIEWS[currentView] || viewDashboard)();
     document.querySelectorAll(".nav-item").forEach(function (b) {
       b.classList.toggle("is-active", b.getAttribute("data-view") === currentView);
     });
