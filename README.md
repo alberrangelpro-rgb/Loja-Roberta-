@@ -92,15 +92,49 @@ navegação se atualizam sozinhos.
 
 ```
 Loja-Roberta-/
-├── index.html        # página do site
+├── index.html        # página do site (vitrine para o cliente)
 ├── config.js         # ⚙️ configurações da loja (WhatsApp, nome, etc.)
 ├── css/styles.css    # 🎨 estilos + paleta de cores (:root)
 ├── js/
 │   ├── products.js   # 🛍️ catálogo de produtos
 │   ├── cart.js       # 🛒 lógica do carrinho + checkout WhatsApp
 │   └── main.js       # 🖥️ renderização e interação da interface
+├── admin/            # 🔒 painel de gestão (uso interno da loja)
+│   ├── index.html    #    tela do painel
+│   ├── admin.css     #    estilos do painel
+│   └── admin.js      #    estoque + financeiro (dados no navegador)
 └── README.md
 ```
+
+---
+
+## 🔒 Painel de gestão (Estoque & Financeiro)
+
+Além do site que o cliente vê, o projeto tem um **painel interno** para a dona da
+loja controlar **estoque, vendas, despesas e lucro**. É só abrir
+`admin/index.html` no navegador (ou acessar `.../admin/` se o site estiver publicado).
+
+**Como funciona:**
+
+- No **primeiro acesso** você define uma **senha** (trava simples para uso no
+  balcão — não é criptografia).
+- Os dados ficam salvos **só no navegador do aparelho** (localStorage). Não há
+  servidor nem custo. Por isso, **faça backup** com frequência na aba *Backup*
+  (baixa um arquivo `.json` que você pode reimportar depois ou em outro aparelho).
+
+**O que dá para fazer:**
+
+| Aba | Para quê |
+|-----|----------|
+| **Painel** | Visão geral do mês: faturamento, despesas, lucro, saldo em caixa, mais vendidos e alertas de estoque baixo. |
+| **Estoque** | Cadastrar produtos (custo, preço, quantidade, estoque mínimo), editar, excluir, registrar entradas/saídas e ver o histórico de cada item. |
+| **Vendas** | Registrar uma venda — o **estoque baixa automaticamente** e a receita entra no financeiro. Dá para estornar. |
+| **Financeiro** | Lançar receitas e despesas, ver entradas × saídas e o saldo em caixa por mês. |
+| **Relatórios** | Lucro bruto/líquido, margem, despesas por categoria e produtos mais lucrativos. Botão de imprimir/PDF. |
+| **Backup** | Exportar/importar todos os dados e trocar a senha. |
+
+> 💡 Como os dados moram no navegador, exporte um backup de vez em quando —
+> principalmente antes de limpar o histórico do navegador ou trocar de celular.
 
 ## ✅ Funcionalidades
 

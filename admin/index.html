@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>mova. — Gestão (Estoque & Financeiro)</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <!-- ================= TELA DE ACESSO ================= -->
+  <div id="lockScreen" class="lock">
+    <div class="lock-card">
+      <div class="lock-logo">mova.<span>gestão</span></div>
+      <p class="lock-sub">Painel interno de estoque e financeiro.</p>
+      <label class="field">
+        <span>Senha de acesso</span>
+        <input type="password" id="lockPass" placeholder="Digite a senha" autocomplete="current-password" />
+      </label>
+      <button class="btn btn-primary btn-block" id="lockBtn">Entrar</button>
+      <p class="lock-hint" id="lockHint">Primeiro acesso? Crie uma senha agora.</p>
+      <p class="lock-error" id="lockError" hidden></p>
+    </div>
+  </div>
+
+  <!-- ================= APP ================= -->
+  <div id="app" hidden>
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="brand">mova.<span>gestão</span></div>
+      <nav class="nav">
+        <button class="nav-item is-active" data-view="dashboard"><i>▚</i> Painel</button>
+        <button class="nav-item" data-view="estoque"><i>▦</i> Estoque</button>
+        <button class="nav-item" data-view="vendas"><i>↗</i> Vendas</button>
+        <button class="nav-item" data-view="financeiro"><i>≣</i> Financeiro</button>
+        <button class="nav-item" data-view="relatorios"><i>◔</i> Relatórios</button>
+        <button class="nav-item" data-view="backup"><i>⇅</i> Backup</button>
+      </nav>
+      <div class="sidebar-foot">
+        <button class="btn btn-ghost btn-sm" id="btnLock">Bloquear</button>
+      </div>
+    </aside>
+
+    <!-- Topo mobile -->
+    <header class="topbar">
+      <button class="hamburger" id="btnMenu" aria-label="Menu">☰</button>
+      <div class="brand-sm">mova. <span>gestão</span></div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="content" id="content"></main>
+  </div>
+
+  <!-- ================= MODAL ================= -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="modalTitle">Título</h3>
+        <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
