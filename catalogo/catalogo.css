@@ -1,0 +1,232 @@
+/* Catálogo mova. action — A4 retrato (210 × 297 mm) */
+@import url("fonts/fonts.css");
+
+:root {
+  --mauve: #8b687e;
+  --mauve-700: #6e5162;
+  --mauve-400: #a67c96;
+  --mauve-300: #c9a6bb;
+  --mauve-100: #f3e9ef;
+  --plum: #2b2026;
+  --plum-700: #573f4d;
+  --paper: #faf6f8;
+  --line: #e2d2db;
+  --muted: #8c7d84;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", "Segoe UI", sans-serif;
+}
+
+@page { size: 210mm 297mm; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #d9ccd3; }
+body { font-family: var(--sans); color: var(--plum); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  background: var(--paper); page-break-after: always; break-after: page;
+}
+@media screen { .page { margin: 10mm auto; box-shadow: 0 2mm 8mm rgba(43,32,38,.18); } }
+
+img { display: block; }
+.ph img, .arch img, .cell img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- logo ---------- */
+.logo svg { display: block; width: 100%; height: auto; }
+.logo { color: var(--mauve); }
+.logo.white { color: #fff; }
+
+/* ---------- textos utilitários ---------- */
+.kicker { font: 500 7.2pt/1 var(--sans); letter-spacing: .42em; text-transform: uppercase; }
+.ref { font: 500 7.4pt/1 var(--sans); letter-spacing: .38em; text-transform: uppercase; color: var(--mauve); }
+
+/* ---------- rodapé das páginas de produto ---------- */
+.foot {
+  position: absolute; left: 14mm; right: 14mm; bottom: 8mm; height: 6mm;
+  display: flex; align-items: center; justify-content: space-between;
+  font: 500 6.6pt/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--muted);
+}
+.foot .logo { width: 17mm; }
+.foot .num { font-weight: 600; color: var(--mauve); letter-spacing: .2em; }
+.foot .mid { flex: 1; text-align: center; }
+
+/* ---------- legenda (duo / trio) ---------- */
+.cap {
+  position: absolute; left: 14mm; right: 14mm; top: 236mm; height: 42mm;
+  display: grid; grid-template-columns: 1fr 50mm; column-gap: 9mm;
+}
+.cap .main { min-width: 0; }
+.cap .nome {
+  font: 600 25pt/1.02 var(--serif); color: var(--plum); margin: 3.2mm 0 2.6mm; letter-spacing: -.005em;
+}
+.cap .det { font: 300 9.6pt/1.5 var(--sans); color: var(--plum-700); max-width: 112mm; }
+.cap .cores { margin-top: 2.6mm; font: 400 8.4pt/1.4 var(--sans); color: var(--plum-700); }
+.cap .cores b, .cap2 .cores b { font-weight: 500; font-size: 6.6pt; letter-spacing: .32em; text-transform: uppercase; color: var(--mauve); margin-right: 1.6mm; }
+.cap .side {
+  border-left: .3mm solid var(--line); padding: 1mm 0 0 7mm;
+  display: flex; flex-direction: column; gap: 1.2mm;
+}
+.side .lbl { font: 500 6.4pt/1.3 var(--sans); letter-spacing: .32em; text-transform: uppercase; color: var(--mauve); }
+.side .val { font: italic 500 15pt/1.15 var(--serif); color: var(--plum); margin-bottom: 2.4mm; }
+.side .preco { font: 600 19pt/1.1 var(--serif); color: var(--plum); margin-bottom: 2.4mm; }
+.side .contato { font: 400 8pt/1.45 var(--sans); color: var(--plum-700); }
+
+.tag {
+  position: absolute; left: 6mm; top: 6mm; padding: 2mm 3.6mm 1.8mm;
+  background: rgba(250,246,248,.92); color: var(--plum);
+  font: 500 6.4pt/1 var(--sans); letter-spacing: .32em; text-transform: uppercase;
+}
+
+/* ---------- duo / trio / par ---------- */
+.ph { position: absolute; left: 0; right: 0; top: 0; height: 226mm; display: flex; gap: 1.6mm; }
+.ph-duo > * { flex: 1 1 0; min-width: 0; height: 100%; }
+.ph-trio .big { flex: 0 0 138.3mm; height: 100%; }
+.ph-trio .col { flex: 1 1 0; display: flex; flex-direction: column; gap: 1.6mm; }
+.ph-trio .col img { flex: 1 1 0; min-height: 0; }
+
+.cap2 {
+  position: absolute; left: 0; right: 0; top: 235mm; height: 44mm;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.cap2 .half { padding: 0 9mm 0 14mm; }
+.cap2 .half + .half { border-left: .3mm solid var(--line); padding-left: 9mm; }
+.cap2 .nome { font: 600 19pt/1.05 var(--serif); margin: 2.6mm 0 2mm; }
+.cap2 .det { font: 300 8.8pt/1.45 var(--sans); color: var(--plum-700); }
+.cap2 .cores { margin-top: 1.6mm; font: 400 8pt/1.4 var(--sans); color: var(--plum-700); }
+.cap2 .consulte { margin-top: 3mm; font: italic 500 11.5pt/1.2 var(--serif); color: var(--mauve-700); }
+.cap2 .preco { margin-top: 3mm; font: 600 15pt/1.1 var(--serif); color: var(--plum); }
+
+/* ---------- grade 2×2 ---------- */
+.grid {
+  position: absolute; left: 0; right: 0; top: 0; height: 262mm;
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1.6mm;
+}
+.cell { position: relative; overflow: hidden; }
+.chip {
+  position: absolute; left: 4mm; bottom: 4mm; padding: 1.9mm 3.4mm 1.7mm;
+  background: rgba(250,246,248,.94); color: var(--plum);
+  font: 500 6.4pt/1 var(--sans); letter-spacing: .3em; text-transform: uppercase;
+}
+.cap-band {
+  position: absolute; left: 14mm; right: 14mm; top: 266mm; height: 18mm;
+  display: flex; align-items: center; gap: 7mm;
+}
+.cap-band .nome { font: 600 17pt/1 var(--serif); white-space: nowrap; }
+.cap-band .det { font: 300 8pt/1.4 var(--sans); color: var(--plum-700); flex: 1; }
+.cap-band .val { font: italic 500 10.5pt/1.2 var(--serif); color: var(--mauve-700); text-align: right; white-space: nowrap; }
+.p-grade .foot { bottom: 3.4mm; }
+.p-grade .foot .logo, .p-grade .foot .mid { display: none; }
+.p-grade .foot { justify-content: flex-end; left: auto; right: 14mm; }
+
+/* ---------- página cheia ---------- */
+.p-cheia .full { position: absolute; inset: 0; }
+.p-cheia .full img { width: 100%; height: 100%; object-fit: cover; }
+.p-cheia .shade {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 120mm;
+  background: linear-gradient(to bottom, rgba(43,32,38,0) 0%, rgba(43,32,38,.42) 45%, rgba(43,32,38,.82) 100%);
+}
+.p-cheia .ov { position: absolute; left: 16mm; right: 16mm; bottom: 22mm; color: #fff; }
+.p-cheia .ov .ref { color: var(--mauve-300); }
+.p-cheia .ov .nome { font: 600 30pt/1.02 var(--serif); margin: 3mm 0 2.6mm; }
+.p-cheia .ov .det { font: 300 9.8pt/1.5 var(--sans); max-width: 120mm; opacity: .95; }
+.p-cheia .ov .val { margin-top: 3.4mm; font: italic 500 13pt/1.2 var(--serif); color: var(--mauve-100); }
+.p-cheia .toplogo { position: absolute; left: 14mm; top: 12mm; width: 26mm; color: var(--mauve); }
+.p-cheia .foot { color: rgba(255,255,255,.75); }
+.p-cheia .foot .num { color: #fff; }
+.p-cheia .foot .logo { display: none; }
+
+/* ---------- foto inteira (sem corte) ---------- */
+.p-foto .fit { position: absolute; top: 0; right: 0; height: 297mm; width: auto; }
+.p-foto .strip {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 12mm 0 10mm;
+}
+.p-foto .vert {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  display: flex; align-items: center; gap: 5mm; white-space: nowrap;
+}
+.p-foto .rot { font: italic 500 30pt/1 var(--serif); letter-spacing: .01em; }
+.p-foto .vref { font: 500 6.6pt/1 var(--sans); letter-spacing: .34em; text-transform: uppercase; opacity: .9; }
+.p-foto .mini { flex: none; }
+.p-foto .pnum { font: 600 6.8pt/1 var(--sans); letter-spacing: .2em; }
+.p-foto.slim .rot { font-size: 15pt; }
+.p-foto.slim .strip { padding: 8mm 0; }
+
+/* ---------- capa ---------- */
+.p-capa { background: var(--mauve); color: #fff; }
+.p-capa .logo { position: absolute; top: 19mm; left: 42mm; width: 126mm; }
+.p-capa .kick { position: absolute; top: 71mm; left: 0; right: 0; text-align: center; color: var(--mauve-100); }
+.p-capa .arch { position: absolute; left: 31mm; width: 148mm; top: 85mm; bottom: 0; border-radius: 74mm 74mm 0 0; overflow: hidden; }
+.p-capa .arch-line { position: absolute; left: 25mm; width: 160mm; top: 79mm; bottom: -2mm; border: .35mm solid rgba(255,255,255,.5); border-bottom: 0; border-radius: 80mm 80mm 0 0; }
+.p-capa .side { position: absolute; top: 0; bottom: 0; width: 25mm; display: flex; align-items: center; justify-content: center; }
+.p-capa .side span { writing-mode: vertical-rl; font: 500 6.6pt/1 var(--sans); letter-spacing: .5em; text-transform: uppercase; color: var(--mauve-100); white-space: nowrap; }
+.p-capa .side.l { left: 0; } .p-capa .side.l span { transform: rotate(180deg); }
+.p-capa .side.r { right: 0; }
+
+/* ---------- arco (abertura de seção e outras) ---------- */
+.arch { overflow: hidden; }
+
+/* ---------- boas-vindas ---------- */
+.p-boas .toplogo { position: absolute; left: 16mm; top: 14mm; width: 30mm; }
+.p-boas .kicker { position: absolute; left: 16mm; top: 44mm; color: var(--mauve); }
+.p-boas h1 { position: absolute; left: 16mm; top: 51mm; width: 88mm; font: italic 500 37pt/1.02 var(--serif); color: var(--plum); }
+.p-boas .txt { position: absolute; left: 16mm; top: 113mm; width: 84mm; font: 300 10.2pt/1.65 var(--sans); color: var(--plum-700); }
+.p-boas .ig { position: absolute; left: 16mm; top: 168mm; font: 500 7.2pt/1 var(--sans); letter-spacing: .38em; color: var(--mauve); text-transform: uppercase; }
+.p-boas .arch { position: absolute; left: 110mm; width: 86mm; top: 26mm; height: 158mm; border-radius: 43mm 43mm 0 0; }
+.p-boas .arch-line { position: absolute; left: 106mm; width: 94mm; top: 22mm; height: 162mm; border: .3mm solid var(--mauve-300); border-bottom: 0; border-radius: 47mm 47mm 0 0; }
+.p-boas .vit { position: absolute; left: 16mm; right: 14mm; top: 196mm; height: 82mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.p-boas .vit div { overflow: hidden; border-radius: 26mm 26mm 0 0; }
+.p-boas .vit img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- sumário ---------- */
+.p-sum { background: var(--mauve-100); }
+.p-sum .toplogo { position: absolute; left: 16mm; top: 14mm; width: 30mm; }
+.p-sum h1 { position: absolute; left: 16mm; top: 36mm; font: italic 500 50pt/1 var(--serif); color: var(--plum); }
+.p-sum .kicker { position: absolute; left: 17mm; top: 64mm; color: var(--mauve); }
+.p-sum ol { position: absolute; left: 16mm; right: 16mm; top: 78mm; list-style: none; }
+.p-sum li { display: flex; align-items: baseline; gap: 5mm; padding: 3.6mm 0; border-bottom: .3mm solid #e2cfda; }
+.p-sum li .n { font: 600 20pt/1 var(--serif); color: var(--mauve); width: 12mm; }
+.p-sum li .t { font: 500 18pt/1 var(--serif); color: var(--plum); }
+.p-sum li .r { font: 400 7pt/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.p-sum li .dots { flex: 1; border-bottom: .35mm dotted var(--mauve-300); transform: translateY(-1.2mm); }
+.p-sum li .p { font: 600 9pt/1 var(--sans); letter-spacing: .12em; color: var(--mauve-700); }
+.p-sum .thumbs { position: absolute; left: 16mm; right: 16mm; bottom: 14mm; height: 58mm; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3.2mm; }
+.p-sum .thumbs div { overflow: hidden; border-radius: 17mm 17mm 0 0; }
+.p-sum .thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- abertura de seção ---------- */
+.p-sec { background: var(--mauve); color: #fff; }
+.p-sec .toplogo { position: absolute; left: 16mm; top: 14mm; width: 30mm; }
+.p-sec .ed { position: absolute; right: 14mm; top: 17mm; color: var(--mauve-100); }
+.p-sec .num { position: absolute; left: 14mm; top: 40mm; font: 600 112pt/1 var(--serif); color: var(--mauve-300); letter-spacing: -.02em; }
+.p-sec h1 { position: absolute; left: 16mm; top: 92mm; width: 74mm; font: italic 500 40pt/1.02 var(--serif); }
+.p-sec .cha { position: absolute; left: 16mm; width: 72mm; font: italic 500 15pt/1.25 var(--serif); color: var(--mauve-100); }
+.p-sec .txt { position: absolute; left: 16mm; width: 70mm; font: 300 9.6pt/1.6 var(--sans); color: #fff; opacity: .92; }
+.p-sec .refs { position: absolute; left: 16mm; bottom: 16mm; color: var(--mauve-100); }
+.p-sec .arch { position: absolute; left: 94mm; width: 102mm; top: 76mm; bottom: 0; border-radius: 51mm 51mm 0 0; }
+.p-sec .arch-line { position: absolute; left: 88.5mm; width: 113mm; top: 70.5mm; bottom: -2mm; border: .35mm solid rgba(255,255,255,.45); border-bottom: 0; border-radius: 56.5mm 56.5mm 0 0; }
+
+/* ---------- como comprar ---------- */
+.p-como { background: var(--mauve-100); }
+.p-como .toplogo { position: absolute; left: 16mm; top: 14mm; width: 30mm; }
+.p-como h1 { position: absolute; left: 16mm; top: 36mm; font: italic 500 46pt/1 var(--serif); }
+.p-como .steps { position: absolute; left: 16mm; width: 96mm; top: 70mm; display: flex; flex-direction: column; gap: 9mm; }
+.p-como .step { display: grid; grid-template-columns: 15mm 1fr; }
+.p-como .step .n { font: 600 30pt/0.9 var(--serif); color: var(--mauve); }
+.p-como .step h3 { font: 600 16pt/1.1 var(--serif); margin-bottom: 1.6mm; }
+.p-como .step p { font: 300 9.4pt/1.55 var(--sans); color: var(--plum-700); }
+.p-como .box { position: absolute; left: 16mm; width: 96mm; top: 186mm; background: var(--mauve); color: #fff; padding: 8mm 8mm 7mm; }
+.p-como .box .kicker { color: var(--mauve-100); }
+.p-como .box .ig { font: italic 500 24pt/1.1 var(--serif); margin-top: 3mm; }
+.p-como .box .wa { font: 400 9pt/1.5 var(--sans); margin-top: 2mm; color: var(--mauve-100); }
+.p-como .aviso { position: absolute; left: 16mm; width: 96mm; top: 238mm; font: 300 7.8pt/1.55 var(--sans); color: var(--muted); }
+.p-como .arch { position: absolute; left: 122mm; width: 74mm; top: 70mm; height: 196mm; border-radius: 37mm 37mm 0 0; }
+.p-como .arch-line { position: absolute; left: 118mm; width: 82mm; top: 66mm; height: 200mm; border: .3mm solid var(--mauve-300); border-bottom: 0; border-radius: 41mm 41mm 0 0; }
+
+/* ---------- contracapa ---------- */
+.p-fim { background: var(--mauve); color: #fff; }
+.p-fim .logo { position: absolute; left: 50mm; width: 110mm; top: 104mm; }
+.p-fim .slogan { position: absolute; left: 0; right: 0; top: 162mm; text-align: center; font: italic 500 20pt/1.2 var(--serif); color: var(--mauve-100); }
+.p-fim .ig { position: absolute; left: 0; right: 0; bottom: 30mm; text-align: center; color: #fff; }
+.p-fim .wa { position: absolute; left: 0; right: 0; bottom: 22mm; text-align: center; font: 400 8.6pt/1 var(--sans); letter-spacing: .12em; color: var(--mauve-100); }
+.p-fim .ring { position: absolute; left: 30mm; width: 150mm; top: 60mm; height: 177mm; border: .35mm solid rgba(255,255,255,.35); border-radius: 75mm; }

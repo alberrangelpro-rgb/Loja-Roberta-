@@ -1,0 +1,155 @@
+{
+  "loja": {
+    "nome": "mova. action",
+    "instagram": "@mova.action",
+    "whatsapp": "",
+    "edicao": "Catálogo 2026",
+    "slogan": "Vista o movimento com atitude.",
+    "boas_vindas": "Cada peça da mova. action é escolhida para a mulher que vive em movimento, do treino ao dia a dia. Macacões, conjuntos, shorts e tops que unem conforto, caimento e estilo para você se sentir bem em cada passo.",
+    "aviso": "Valores e disponibilidade sujeitos a alteração. As cores podem variar levemente conforme a tela."
+  },
+  "capa": { "foto": "002", "foco": "62% 40%" },
+  "abertura": { "foto": "058", "foco": "50% 30%", "vitrine": ["016", "066", "097"] },
+  "como_comprar_foto": { "foto": "053", "foco": "50% 25%" },
+  "secoes": [
+    {
+      "numero": "01",
+      "titulo": "Macacões",
+      "chamada": "Peça única, look completo.",
+      "texto": "Modelagens que abraçam o corpo e costas que roubam a cena, do treino ao pós-treino.",
+      "foto": "016",
+      "foco": "50% 45%",
+      "paginas": [
+        { "layout": "duo", "ref": "01", "nome": "Macacão Off-White", "detalhe": "Alças largas, decote arredondado e costas com tiras cruzadas.", "fotos": ["007", "010"], "foco": { "007": "45% 50%", "010": "45% 50%" } },
+        { "layout": "duo", "ref": "02", "nome": "Macacão Azul Bebê", "detalhe": "Decote arredondado e costas vazadas com tiras cruzadas.", "fotos": ["016", "026"], "foco": { "016": "45% 50%", "026": "40% 50%" } },
+        { "layout": "duo", "ref": "03", "nome": "Macacão Preto", "detalhe": "Alças finas e costas abertas com faixa.", "fotos": ["008", "019"], "foco": { "008": "45% 50%", "019": "62% 50%" } },
+        { "layout": "duo", "ref": "04", "nome": "Macacão Berinjela", "detalhe": "Decote arredondado e costas abertas com faixa.", "fotos": ["009", "024"], "foco": { "009": "62% 50%", "024": "55% 50%" } },
+        { "layout": "trio", "ref": "05", "nome": "Macacão Vinho", "detalhe": "Decote em V, recorte em V na cintura e costas nuas.", "fotos": ["069", "067", "068"], "foco": { "069": "52% 50%", "067": "50% 40%", "068": "40% 50%" } },
+        { "layout": "duo", "ref": "06", "nome": "Macacão Marinho", "detalhe": "Decote em V, recorte em V na cintura e costas nuas.", "fotos": ["071", "070"], "foco": { "071": "50% 50%", "070": "45% 50%" } }
+      ]
+    },
+    {
+      "numero": "02",
+      "titulo": "Macaquinhos",
+      "chamada": "Leveza para se mover.",
+      "texto": "A praticidade de uma peça só, com recortes e costas que fazem toda a diferença.",
+      "foto": "072",
+      "foco": "50% 40%",
+      "paginas": [
+        { "layout": "duo", "ref": "07", "nome": "Macaquinho Frente Única", "detalhe": "Frente única com costas totalmente abertas.", "cores": "Preto", "fotos": ["025", "017"], "foco": { "025": "50% 50%", "017": "50% 50%" } },
+        { "layout": "trio", "ref": "08", "nome": "Macaquinho Costas Cruzadas", "detalhe": "Alças finas cruzadas nas costas, com reguladores.", "cores": "Framboesa · Grafite", "fotos": ["021", "023", "018"], "foco": { "021": "50% 50%", "023": "50% 45%", "018": "50% 40%" } },
+        { "layout": "duo", "ref": "09", "nome": "Macaquinho Costas Vazadas", "detalhe": "Decote arredondado e costas com torção vazada.", "cores": "Preto · Marinho", "fotos": ["046", "047"], "foco": { "046": "50% 50%", "047": "50% 50%" } },
+        { "layout": "duo", "ref": "10", "nome": "Look Frente Única Lima", "detalhe": "Frente única com amarração no pescoço e bolsos laterais.", "fotos": ["030", "029"], "foco": { "030": "50% 50%", "029": "45% 50%" } },
+        { "layout": "duo", "ref": "11", "nome": "Macaquinho Short-Saia Marrom", "detalhe": "Alças duplas, costas com tiras cruzadas e short-saia.", "fotos": ["073", "072"], "foco": { "073": "40% 50%", "072": "50% 50%" } },
+        { "layout": "trio", "ref": "12", "nome": "Macaquinho Short-Saia Branco", "detalhe": "Alças duplas, costas com tiras cruzadas e short-saia.", "fotos": ["081", "080", "079"], "foco": { "081": "50% 50%", "080": "50% 45%", "079": "50% 30%" } },
+        { "layout": "grade", "ref": "13", "nome": "Look Cós Franzido", "detalhe": "Regata com short soltinho de cós franzido e barra arredondada.", "cores": "Rosa · Cinza-Azulado · Vinho · Magenta", "fotos": ["033", "034", "035", "036"], "legendas": ["Rosa", "Cinza-Azulado", "Vinho", "Magenta"], "foco": { "033": "50% 60%", "034": "48% 60%", "035": "45% 55%", "036": "50% 40%" } }
+      ]
+    },
+    {
+      "numero": "03",
+      "titulo": "Conjuntos com Legging",
+      "chamada": "Sustentação e estilo.",
+      "texto": "Top e legging que combinam entre si e com a sua rotina de treinos.",
+      "foto": "039",
+      "foco": "50% 40%",
+      "paginas": [
+        { "layout": "duo", "ref": "14", "nome": "Regata Preta + Legging Vinho", "detalhe": "Regata nadador sobre top e legging canelada.", "fotos": ["011", "004"], "foco": { "011": "50% 40%", "004": "50% 40%" } },
+        { "layout": "duo", "ref": "15", "nome": "Conjunto Preto Brilho", "detalhe": "Top de um ombro só e legging com brilho.", "fotos": ["015", "005"], "foco": { "015": "50% 50%", "005": "50% 50%" } },
+        { "layout": "trio", "ref": "16", "nome": "Conjunto Preto Top Cruzado", "detalhe": "Top com alças cruzadas no pescoço e franzido frontal, com legging de cós alto.", "fotos": ["039", "037", "038"], "foco": { "039": "45% 50%", "037": "50% 30%", "038": "50% 40%" } },
+        { "layout": "par", "itens": [
+          { "ref": "17", "nome": "Conjunto Caramelo", "detalhe": "Top de alças finas e legging de cós alto.", "foto": "006", "foco": "50% 50%" },
+          { "ref": "18", "nome": "Conjunto Marinho com Vivo", "detalhe": "Top nadador e legging com vivo branco lateral.", "foto": "060", "foco": "50% 50%" }
+        ] },
+        { "layout": "duo", "ref": "19", "nome": "Conjunto Rosa Bebê", "detalhe": "Top de alças finas e legging de cós alto com recortes.", "fotos": ["051", "052"], "foco": { "051": "50% 30%", "052": "45% 50%" } },
+        { "layout": "duo", "ref": "20", "nome": "Conjunto Creme com Zíper", "detalhe": "Cropped de gola alta com zíper e legging de cós alto.", "fotos": ["077", "078"], "foco": { "077": "50% 50%", "078": "50% 50%" } },
+        { "layout": "foto", "ref": "21", "nome": "Top Isabela + Legging Isabela", "rotulo": "Isabela", "foto": "040", "cor": "#ead48e", "texto_cor": "#2b2026" }
+      ]
+    },
+    {
+      "numero": "04",
+      "titulo": "Conjuntos com Short",
+      "chamada": "Liberdade em cada passo.",
+      "texto": "Cores que alegram o treino e cortes pensados para os dias de calor.",
+      "foto": "055",
+      "foco": "50% 35%",
+      "paginas": [
+        { "layout": "trio", "ref": "22", "nome": "Conjunto Menta", "detalhe": "Top assimétrico com alça cruzada e short de cós alto.", "fotos": ["001", "002", "003"], "foco": { "001": "55% 50%", "002": "60% 45%", "003": "55% 35%" } },
+        { "layout": "cheia", "ref": "23", "nome": "Conjunto Uva Tomara que Caia", "detalhe": "Top tomara que caia e short com bolsos laterais.", "foto": "020", "foco": "50% 50%" },
+        { "layout": "duo", "ref": "24", "nome": "Conjunto Transpassado Vinho", "detalhe": "Top com costas transpassadas e short soltinho com bolso.", "fotos": ["042", "043"], "foco": { "042": "50% 50%", "043": "50% 50%" } },
+        { "layout": "duo", "ref": "25", "nome": "Conjunto Transpassado Azul Céu", "detalhe": "Top com costas transpassadas e short soltinho com bolso.", "fotos": ["045", "044"], "foco": { "045": "50% 50%", "044": "50% 50%" } },
+        { "layout": "par", "itens": [
+          { "ref": "26", "nome": "Conjunto Alcinha Amarelo", "detalhe": "Top de alças finas e short de cós alto.", "foto": "053", "foco": "50% 50%" },
+          { "ref": "27", "nome": "Conjunto Alcinha Pink", "detalhe": "Top de alças finas e short de cós alto.", "foto": "054", "foco": "50% 50%" }
+        ] },
+        { "layout": "duo", "ref": "28", "nome": "Conjunto Verde-Água", "detalhe": "Top de alças finas com costas abertas e short de cós alto.", "fotos": ["055", "056"], "foco": { "055": "50% 50%", "056": "45% 50%" } },
+        { "layout": "duo", "ref": "29", "nome": "Conjunto Rosa Claro", "detalhe": "Top de alças largas com costas vazadas e short soltinho.", "fotos": ["058", "057"], "foco": { "058": "50% 50%", "057": "45% 50%" } },
+        { "layout": "par", "itens": [
+          { "ref": "30", "nome": "Conjunto Rosa com Vivo", "detalhe": "Top e short soltinho com vivos verde-sálvia.", "foto": "041", "foco": "45% 50%" },
+          { "ref": "31", "nome": "Conjunto Lavanda", "detalhe": "Top de alças largas e short soltinho de cós alto.", "foto": "059", "foco": "48% 50%" }
+        ] }
+      ]
+    },
+    {
+      "numero": "05",
+      "titulo": "Shorts-Saia",
+      "chamada": "Movimento com feminilidade.",
+      "texto": "Peças soltinhas com short por baixo e bolsos para levar o essencial.",
+      "foto": "063",
+      "foco": "50% 40%",
+      "paginas": [
+        { "layout": "trio", "ref": "32", "nome": "Conjunto Tie-Dye Gola Alta", "detalhe": "Cropped de gola alta e short com bolso, em estampa tie-dye.", "fotos": ["048", "049", "050"], "foco": { "048": "45% 50%", "049": "45% 40%", "050": "50% 40%" } },
+        { "layout": "foto", "ref": "33", "nome": "Conjunto Tie-Dye", "rotulo": "Tie-Dye", "foto": "031", "cor": "#c9dcef", "texto_cor": "#2b2026" },
+        { "layout": "trio", "ref": "34", "nome": "Conjunto Marrom", "detalhe": "Regata de alças duplas e short-saia com bolso.", "fotos": ["063", "061", "062"], "foco": { "063": "45% 50%", "061": "40% 40%", "062": "40% 50%" } },
+        { "layout": "trio", "ref": "35", "nome": "Conjunto Vermelho", "detalhe": "Top nadador com costas vazadas e short-saia com bolso.", "fotos": ["066", "064", "065"], "foco": { "066": "45% 50%", "064": "45% 45%", "065": "50% 50%" } },
+        { "layout": "trio", "ref": "36", "nome": "Conjunto Laranja com Zíper", "detalhe": "Cropped de gola alta com zíper e saia com short embutido e bolso.", "fotos": ["076", "074", "075"], "foco": { "076": "50% 50%", "074": "50% 45%", "075": "50% 45%" } }
+      ]
+    },
+    {
+      "numero": "06",
+      "titulo": "Camisetas",
+      "chamada": "O básico que funciona.",
+      "texto": "Camisetas em tela e baby looks para combinar com tudo.",
+      "foto": "013",
+      "foco": "50% 35%",
+      "paginas": [
+        { "layout": "par", "itens": [
+          { "ref": "37", "nome": "Camiseta Tela Cinza", "detalhe": "Com short azul-bebê de cós alto.", "foto": "012", "foco": "50% 50%" },
+          { "ref": "38", "nome": "Camiseta Tela Amarela", "detalhe": "Com short amarelo de cós alto.", "foto": "027", "foco": "45% 50%" }
+        ] },
+        { "layout": "par", "itens": [
+          { "ref": "39", "nome": "Camiseta Tela Azul", "detalhe": "Com short marinho.", "foto": "014", "foco": "52% 50%" },
+          { "ref": "40", "nome": "Baby Look Azul", "detalhe": "Com short amarelo de cós alto.", "foto": "013", "foco": "48% 50%" }
+        ] },
+        { "layout": "cheia", "ref": "41", "nome": "Baby Look Rosa", "detalhe": "Com short verde-militar.", "foto": "022", "foco": "50% 50%" }
+      ]
+    },
+    {
+      "numero": "07",
+      "titulo": "Editorial",
+      "chamada": "Rose · Dual · Petrol · Coral · Mocha",
+      "texto": "Cartelas de cor pensadas para combinar entre si. Monte o seu look peça por peça.",
+      "foto": "092",
+      "foco": "50% 30%",
+      "paginas": [
+        { "layout": "foto", "rotulo": "Rose", "foto": "028", "cor": "#e4b4bf", "texto_cor": "#2b2026" },
+        { "layout": "foto", "ref": "42", "nome": "Cropped Nina + Short Mirela", "rotulo": "Rose", "foto": "088", "cor": "#e4b4bf", "texto_cor": "#2b2026" },
+        { "layout": "foto", "ref": "43", "nome": "Cropped Nina + Short Mirela", "rotulo": "Rose", "foto": "083", "cor": "#e4b4bf", "texto_cor": "#2b2026" },
+        { "layout": "foto", "ref": "44", "nome": "Top Brisa + Short Brisa", "rotulo": "Rose", "foto": "084", "cor": "#e4b4bf", "texto_cor": "#2b2026" },
+        { "layout": "foto", "ref": "45", "nome": "Look Dual", "rotulo": "Dual", "foto": "082", "cor": "#ead48e", "texto_cor": "#2b2026" },
+        { "layout": "foto", "rotulo": "Petrol", "foto": "090", "cor": "#6f939b", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "46", "nome": "Top Iara + Short Hellen", "rotulo": "Petrol", "foto": "089", "cor": "#6f939b", "texto_cor": "#ffffff" },
+        { "layout": "duo", "ref": "46", "nome": "Top Iara + Short Hellen", "detalhe": "Costas nadador com bolso e short com barra dobrada.", "nota": "Costas e detalhes", "fotos": ["086", "085"], "foco": { "086": "50% 50%", "085": "50% 50%" }, "cor": "#6f939b" },
+        { "layout": "foto", "ref": "47", "nome": "Regata Hellen + Short Iara", "rotulo": "Petrol", "foto": "091", "cor": "#6f939b", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "47", "nome": "Regata Hellen + Short Iara", "nota": "Costas", "rotulo": "Petrol", "foto": "092", "cor": "#6f939b", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "48", "nome": "Regata Liza + Short Liza", "rotulo": "Coral", "foto": "093", "cor": "#c9574b", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "48", "nome": "Regata Liza + Short Liza", "nota": "Costas", "rotulo": "Coral", "foto": "094", "cor": "#c9574b", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "49", "nome": "Top Diana + Legging Lívia", "rotulo": "Coral", "foto": "095", "cor": "#c9574b", "texto_cor": "#ffffff" },
+        { "layout": "foto", "rotulo": "Mocha", "foto": "099", "cor": "#6b351f", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "50", "nome": "Regata Liza + Legging Lívia", "rotulo": "Mocha", "foto": "098", "cor": "#6b351f", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "50", "nome": "Regata Liza + Legging Lívia", "nota": "Costas", "rotulo": "Mocha", "foto": "096", "cor": "#6b351f", "texto_cor": "#ffffff" },
+        { "layout": "foto", "ref": "51", "nome": "Top Iara + Short Iara", "rotulo": "Mocha", "foto": "101", "cor": "#6b351f", "texto_cor": "#ffffff" },
+        { "layout": "duo", "ref": "51", "nome": "Top Iara + Short Iara", "detalhe": "Bolso nas costas do top e bolso no short, para levar celular e chave.", "nota": "Costas e detalhes", "fotos": ["097", "100"], "foco": { "097": "50% 40%", "100": "50% 50%" }, "cor": "#6b351f" }
+      ]
+    }
+  ]
+}
