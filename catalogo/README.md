@@ -13,7 +13,7 @@ marca (malva `#8b687e`, off-white `#faf6f8`, ameixa `#2b2026`) e as fontes do si
 
 ## Como o catálogo está organizado
 
-1. Capa
+1. Capa (foto 087, "Rose", em estilo revista; troque em `capa` no `dados.json`)
 2. Boas-vindas
 3. Sumário
 4. Sete seções, cada uma com página de abertura:
@@ -54,7 +54,8 @@ node build.cjs --png                 # também salva prévias em saida/previa/
   Duas vieram repetidas e entram uma vez só: **032 = 031** e **087 = 028**.
 - `fotos-ajustadas/029.jpg` é a selfie 029 endireitada (chegou inclinada 45°).
 - `fotos-hd/` tem as fotos ampliadas 2× com IA (Real-ESRGAN, `ferramentas/upscale.py`)
-  para ficarem nítidas na impressão.
+  para ficarem nítidas na impressão. As que vieram de print de tela tiveram a linha preta
+  lateral removida (`ferramentas/aparar_bordas.py`).
 - `fotos-web/` tem as versões leves usadas no PDF para WhatsApp.
 
 A logo foi vetorizada (`marca/logo-mova.svg`) para ficar nítida em qualquer tamanho.

@@ -51,6 +51,14 @@ const foot = (sec, n) =>
 const P = {
   capa() {
     const c = data.capa;
+    if (c.modelo === 'revista') {
+      const w = Math.min(210, 297 * ratios[c.foto]);
+      return `<section class="page p-capa revista">
+      <img class="fit" src="${src(c.foto)}" style="width:${w.toFixed(2)}mm" alt="">
+      <div class="band" style="width:${(210 - w).toFixed(2)}mm"><span>${esc(loja.edicao)} · Moda fitness feminina</span><span>${esc(loja.instagram)}</span></div>
+      ${logo('white')}
+    </section>`;
+    }
     return `<section class="page p-capa">
       ${logo('white')}
       <div class="kicker kick">${esc(loja.edicao)} · Moda fitness feminina</div>
@@ -269,6 +277,7 @@ console.log(`${paginas.length} páginas · ${usadas.size} fotos usadas${faltando
 
 // ---------------------------------------------------------------- render
 (async () => {
+  if (args.has('--html')) return; // só gera o HTML
   const { chromium } = require('playwright');
   const browser = await chromium.launch();
   const page = await browser.newPage();

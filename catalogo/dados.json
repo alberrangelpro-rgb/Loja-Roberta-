@@ -8,7 +8,7 @@
     "boas_vindas": "Cada peça da mova. action é escolhida para a mulher que vive em movimento, do treino ao dia a dia. Macacões, conjuntos, shorts e tops que unem conforto, caimento e estilo para você se sentir bem em cada passo.",
     "aviso": "Valores e disponibilidade sujeitos a alteração. As cores podem variar levemente conforme a tela."
   },
-  "capa": { "foto": "002", "foco": "62% 40%" },
+  "capa": { "modelo": "revista", "foto": "087", "foco": "50% 22%" },
   "abertura": { "foto": "058", "foco": "50% 30%", "vitrine": ["016", "066", "097"] },
   "como_comprar_foto": { "foto": "053", "foco": "50% 25%" },
   "secoes": [

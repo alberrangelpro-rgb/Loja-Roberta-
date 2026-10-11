@@ -162,6 +162,10 @@ img { display: block; }
 .p-capa .side span { writing-mode: vertical-rl; font: 500 6.6pt/1 var(--sans); letter-spacing: .5em; text-transform: uppercase; color: var(--mauve-100); white-space: nowrap; }
 .p-capa .side.l { left: 0; } .p-capa .side.l span { transform: rotate(180deg); }
 .p-capa .side.r { right: 0; }
+.p-capa.revista .fit { position: absolute; top: 0; right: 0; height: 297mm; }
+.p-capa.revista .band { position: absolute; left: 0; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 58mm 0 14mm; }
+.p-capa.revista .band span { writing-mode: vertical-rl; transform: rotate(180deg); font: 500 6.8pt/1 var(--sans); letter-spacing: .5em; text-transform: uppercase; color: var(--mauve-100); white-space: nowrap; }
+.p-capa.revista .logo { top: 9mm; left: 8mm; width: 64mm; filter: drop-shadow(0 .4mm 1.2mm rgba(43,32,38,.25)); }
 
 /* ---------- arco (abertura de seção e outras) ---------- */
 .arch { overflow: hidden; }
