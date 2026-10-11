@@ -18,6 +18,7 @@ const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'dados.json'), 'utf8'));
 const ratios = JSON.parse(fs.readFileSync(path.join(ROOT, 'ferramentas/proporcoes.json'), 'utf8'));
 const LOGO = fs.readFileSync(path.join(ROOT, 'marca/logo-mova.svg'), 'utf8');
 const loja = data.loja;
+if (loja.whatsapp) loja.whatsapp = loja.whatsapp.replace(/ /g, '\u00a0'); // número não quebra de linha
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 

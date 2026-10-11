@@ -12,8 +12,8 @@
 window.CONFIG = {
   storeName: "mova.",
   storeTagline: "Moda fitness feminina para você vestir o movimento com atitude.",
-  whatsappNumber: "5585999999999", // <-- TROQUE pelo número real da loja
+  whatsappNumber: "5588994532797", // (88) 99453-2797
   currency: "R$",
   freeShippingFrom: 199.9,
-  instagram: "@mova.action",
+  instagram: "@movaactiion",
 };

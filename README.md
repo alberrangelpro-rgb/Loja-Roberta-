@@ -35,10 +35,10 @@ valor para frete grátis.
 ```js
 window.CONFIG = {
   storeName: "mova.",
-  whatsappNumber: "5585999999999", // código do país + DDD + número, só dígitos
+  whatsappNumber: "5588994532797", // código do país + DDD + número, só dígitos
   currency: "R$",
   freeShippingFrom: 199.9,
-  instagram: "@mova.action",
+  instagram: "@movaactiion",
 };
 ```
 
