@@ -22,9 +22,9 @@
       "foco": "50% 45%",
       "paginas": [
         { "layout": "duo", "nome": "Macacão Off-White", "detalhe": "Alças largas, decote arredondado e costas com tiras cruzadas.", "fotos": ["007", "010"], "foco": { "007": "45% 50%", "010": "45% 50%" } },
-        { "layout": "duo", "nome": "Macacão Azul Bebê", "detalhe": "Decote arredondado e costas vazadas com tiras cruzadas.", "fotos": ["016", "026"], "foco": { "016": "45% 50%", "026": "40% 50%" } },
+        { "layout": "duo", "nome": "Macacão Amélia", "cor": "Azul Bebê", "preco": "238,00", "detalhe": "Decote arredondado e costas vazadas com tiras cruzadas.", "fotos": ["016", "026"], "foco": { "016": "45% 50%", "026": "40% 50%" } },
         { "layout": "duo", "nome": "Macacão Preto", "detalhe": "Alças finas e costas abertas com faixa.", "fotos": ["008", "019"], "foco": { "008": "45% 50%", "019": "62% 50%" } },
-        { "layout": "duo", "nome": "Macacão Berinjela", "detalhe": "Decote arredondado e costas abertas com faixa.", "fotos": ["009", "024"], "foco": { "009": "62% 50%", "024": "55% 50%" } },
+        { "layout": "duo", "nome": "Macacão Serena", "cor": "Berinjela", "preco": "234,00", "detalhe": "Decote arredondado e costas abertas com faixa.", "fotos": ["009", "024"], "foco": { "009": "62% 50%", "024": "55% 50%" } },
         { "layout": "trio", "nome": "Macacão Leona", "cor": "Vinho", "preco": "250,00", "tamanhos": ["P", "M", "G"], "detalhe": "Decote em V, recorte em V na cintura e costas nuas.", "fotos": ["069", "067", "068"], "foco": { "069": "52% 50%", "067": "50% 40%", "068": "40% 50%" } },
         { "layout": "duo", "nome": "Macacão Leona", "cor": "Marinho", "preco": "250,00", "tamanhos": ["P"], "detalhe": "Decote em V, recorte em V na cintura e costas nuas.", "fotos": ["071", "070"], "foco": { "071": "50% 50%", "070": "45% 50%" } }
       ]
@@ -37,8 +37,8 @@
       "foto": "072",
       "foco": "50% 40%",
       "paginas": [
-        { "layout": "duo", "nome": "Macaquinho Frente Única", "cor": "Preto", "detalhe": "Frente única com costas totalmente abertas.", "fotos": ["025", "017"], "foco": { "025": "50% 50%", "017": "50% 50%" } },
-        { "layout": "trio", "nome": "Macaquinho Costas Cruzadas", "detalhe": "Alças finas cruzadas nas costas, com reguladores.", "cores": "Framboesa · Grafite", "fotos": ["021", "023", "018"], "foco": { "021": "50% 50%", "023": "50% 45%", "018": "50% 40%" } },
+        { "layout": "duo", "nome": "Macaquinho Amora", "cor": "Preto", "preco": "150,00", "tamanhos": ["G"], "detalhe": "Frente única com costas totalmente abertas.", "fotos": ["025", "017"], "foco": { "025": "50% 50%", "017": "50% 50%" } },
+        { "layout": "trio", "nome": "Macaquinho Olívia", "preco": "150,00", "detalhe": "Alças finas cruzadas nas costas, com reguladores.", "cores": "Framboesa · Grafite", "fotos": ["021", "023", "018"], "foco": { "021": "50% 50%", "023": "50% 45%", "018": "50% 40%" } },
         { "layout": "duo", "nome": "Macaquinho Costas Vazadas", "detalhe": "Decote arredondado e costas com torção vazada.", "cores": "Preto · Marinho", "fotos": ["046", "047"], "foco": { "046": "50% 50%", "047": "50% 50%" } },
         { "layout": "trio", "nome": "Macaquinho Juliana", "cor": "Branco", "preco": "255,00", "tamanhos": ["P", "M", "G"], "detalhe": "Alças duplas, costas trançadas e short-saia.", "fotos": ["081", "080", "079"], "foco": { "081": "50% 50%", "080": "50% 45%", "079": "50% 30%" } },
         { "layout": "duo", "nome": "Macaquinho Juliana", "cor": "Marrom", "preco": "279,00", "tamanhos": ["P", "M", "G"], "detalhe": "Alças duplas, costas trançadas e short-saia.", "fotos": ["073", "072"], "foco": { "073": "40% 50%", "072": "50% 50%" } }
@@ -53,7 +53,7 @@
       "foco": "50% 40%",
       "paginas": [
         { "layout": "duo", "nome": "Regata Preta + Legging Vinho", "detalhe": "Regata nadador sobre top e legging canelada.", "fotos": ["011", "004"], "foco": { "011": "50% 40%", "004": "50% 40%" } },
-        { "layout": "duo", "nome": "Conjunto Preto Brilho", "detalhe": "Top de um ombro só e legging com brilho.", "fotos": ["015", "005"], "foco": { "015": "50% 50%", "005": "50% 50%" } },
+        { "layout": "duo", "nome": "Conjunto Giovana", "cor": "Preto", "preco": "137,00", "detalhe": "Top de um ombro só e legging com brilho.", "fotos": ["015", "005"], "foco": { "015": "50% 50%", "005": "50% 50%" } },
         { "layout": "trio", "nome": "Top Luanda + Legging Isabela", "cor": "Preto", "detalhe": "Top com alças cruzadas no pescoço e franzido frontal, com legging de cós alto.", "pecas": [{ "tipo": "Top", "nome": "Luanda", "preco": "140,00" }, { "tipo": "Legging", "nome": "Isabela", "preco": "200,00" }], "look": "340,00", "tamanhos": ["M"], "fotos": ["039", "037", "038"], "foco": { "039": "45% 50%", "037": "50% 30%", "038": "50% 40%" } },
         { "layout": "par", "itens": [
           { "nome": "Conjunto Caramelo", "detalhe": "Top de alças finas e legging de cós alto.", "foto": "006", "foco": "50% 50%" },
@@ -72,7 +72,7 @@
       "foto": "055",
       "foco": "50% 35%",
       "paginas": [
-        { "layout": "trio", "nome": "Conjunto Menta", "detalhe": "Top assimétrico com alça cruzada e short de cós alto.", "fotos": ["001", "002", "003"], "foco": { "001": "55% 50%", "002": "60% 45%", "003": "55% 35%" } },
+        { "layout": "trio", "nome": "Conjunto Anumin", "cor": "Menta", "preco": "236,00", "detalhe": "Top assimétrico com alça cruzada e short de cós alto.", "fotos": ["001", "002", "003"], "foco": { "001": "55% 50%", "002": "60% 45%", "003": "55% 35%" } },
         { "layout": "cheia", "nome": "Conjunto Uva Tomara que Caia", "detalhe": "Top tomara que caia e short com bolsos laterais.", "foto": "020", "foco": "50% 50%" },
         { "layout": "duo", "nome": "Conjunto Juliana", "cor": "Vinho", "preco": "250,00", "tamanhos": ["P", "M", "G"], "detalhe": "Top com costas transpassadas e short soltinho com bolso.", "fotos": ["042", "043"], "foco": { "042": "50% 50%", "043": "50% 50%" } },
         { "layout": "duo", "nome": "Conjunto Juliana", "cor": "Azul", "preco": "250,00", "tamanhos": ["P", "M", "G"], "detalhe": "Top com costas transpassadas e short soltinho com bolso.", "fotos": ["045", "044"], "foco": { "045": "50% 50%", "044": "50% 50%" } },
@@ -111,7 +111,7 @@
       "paginas": [
         { "layout": "par", "itens": [
           { "nome": "Camiseta Tela Cinza", "detalhe": "Com short azul-bebê de cós alto.", "foto": "012", "foco": "50% 50%" },
-          { "nome": "Camiseta Tela Amarela", "detalhe": "Com short amarelo de cós alto.", "foto": "027", "foco": "45% 50%" }
+          { "nome": "Blusa Tânia", "cor": "Amarelo", "preco": "85,00", "detalhe": "Blusa em tela, aqui com short amarelo de cós alto.", "foto": "027", "foco": "45% 50%" }
         ] },
         { "layout": "par", "itens": [
           { "nome": "Camiseta Tela Azul", "detalhe": "Com short marinho.", "foto": "014", "foco": "52% 50%" },

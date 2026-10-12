@@ -177,7 +177,7 @@ const P = {
         <p class="det">${esc(i.detalhe)}</p>
         ${i.cores ? `<p class="cores"><b>Cores</b>${esc(i.cores)}</p>` : ''}
         ${temDados(i)
-          ? `<div class="linha">${i.preco ? `<p class="preco">R$ ${esc(i.preco)}</p>` : '<p class="consulte">Consulte valores</p>'}${i.tamanhos && i.tamanhos.length ? bolinhas(i.tamanhos) : ''}</div>`
+          ? `<div class="linha">${i.preco ? `<p class="preco">R$ ${esc(i.preco)}</p>` : '<p class="consulte">Consulte valores</p>'}${i.tamanhos && i.tamanhos.length ? bolinhas(i.tamanhos) : '<p class="consulte">Consulte tamanhos</p>'}</div>`
           : `<p class="consulte">Consulte valores e tamanhos</p>`}
       </div>`;
     return `<section class="page p-par">
