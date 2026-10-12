@@ -21,9 +21,9 @@
       "foto": "016",
       "foco": "50% 45%",
       "paginas": [
-        { "layout": "duo", "nome": "Macacão Off-White", "detalhe": "Alças largas, decote arredondado e costas com tiras cruzadas.", "fotos": ["007", "010"], "foco": { "007": "45% 50%", "010": "45% 50%" } },
+        { "layout": "duo", "nome": "Macacão Amélia", "cor": "Off-White", "preco": "238,00", "detalhe": "Decote arredondado e costas vazadas com tiras cruzadas.", "fotos": ["007", "010"], "foco": { "007": "45% 50%", "010": "45% 50%" } },
         { "layout": "duo", "nome": "Macacão Amélia", "cor": "Azul Bebê", "preco": "238,00", "detalhe": "Decote arredondado e costas vazadas com tiras cruzadas.", "fotos": ["016", "026"], "foco": { "016": "45% 50%", "026": "40% 50%" } },
-        { "layout": "duo", "nome": "Macacão Preto", "detalhe": "Alças finas e costas abertas com faixa.", "fotos": ["008", "019"], "foco": { "008": "45% 50%", "019": "62% 50%" } },
+        { "layout": "duo", "nome": "Macacão Serena", "cor": "Preto", "preco": "234,00", "detalhe": "Decote arredondado e costas abertas com faixa.", "fotos": ["008", "019"], "foco": { "008": "45% 50%", "019": "62% 50%" } },
         { "layout": "duo", "nome": "Macacão Serena", "cor": "Berinjela", "preco": "234,00", "detalhe": "Decote arredondado e costas abertas com faixa.", "fotos": ["009", "024"], "foco": { "009": "62% 50%", "024": "55% 50%" } },
         { "layout": "trio", "nome": "Macacão Leona", "cor": "Vinho", "preco": "250,00", "tamanhos": ["P", "M", "G"], "detalhe": "Decote em V, recorte em V na cintura e costas nuas.", "fotos": ["069", "067", "068"], "foco": { "069": "52% 50%", "067": "50% 40%", "068": "40% 50%" } },
         { "layout": "duo", "nome": "Macacão Leona", "cor": "Marinho", "preco": "250,00", "tamanhos": ["P"], "detalhe": "Decote em V, recorte em V na cintura e costas nuas.", "fotos": ["071", "070"], "foco": { "071": "50% 50%", "070": "45% 50%" } }
@@ -56,7 +56,7 @@
         { "layout": "duo", "nome": "Conjunto Giovana", "cor": "Preto", "preco": "137,00", "detalhe": "Top de um ombro só e legging com brilho.", "fotos": ["015", "005"], "foco": { "015": "50% 50%", "005": "50% 50%" } },
         { "layout": "trio", "nome": "Top Luanda + Legging Isabela", "cor": "Preto", "detalhe": "Top com alças cruzadas no pescoço e franzido frontal, com legging de cós alto.", "pecas": [{ "tipo": "Top", "nome": "Luanda", "preco": "140,00" }, { "tipo": "Legging", "nome": "Isabela", "preco": "210,00" }], "look": "350,00", "tamanhos": ["M"], "fotos": ["039", "037", "038"], "foco": { "039": "45% 50%", "037": "50% 30%", "038": "50% 40%" } },
         { "layout": "par", "itens": [
-          { "nome": "Conjunto Caramelo", "detalhe": "Top de alças finas e legging de cós alto.", "foto": "006", "foco": "50% 50%" },
+          { "nome": "Conjunto Raquel", "cor": "Caramelo", "preco": "236,00", "detalhe": "Top de alças finas e legging de cós alto com recortes.", "foto": "006", "foco": "50% 50%" },
           { "nome": "Conjunto Tay", "cor": "Marinho", "preco": "236,00", "tamanhos": ["P"], "detalhe": "Top nadador e legging com vivo branco lateral.", "foto": "060", "foco": "50% 50%" }
         ] },
         { "layout": "duo", "nome": "Conjunto Raquel", "cor": "Rosa Bebê", "preco": "236,00", "tamanhos": ["G"], "detalhe": "Top de alças finas e legging de cós alto com recortes.", "fotos": ["051", "052"], "foco": { "051": "50% 30%", "052": "45% 50%" } },
@@ -110,11 +110,11 @@
       "foco": "50% 35%",
       "paginas": [
         { "layout": "par", "itens": [
-          { "nome": "Camiseta Tela Cinza", "detalhe": "Com short azul-bebê de cós alto.", "foto": "012", "foco": "50% 50%" },
+          { "nome": "Blusa Tânia", "cor": "Cinza", "preco": "85,00", "detalhe": "Blusa em tela, aqui com short azul-bebê de cós alto.", "foto": "012", "foco": "50% 50%" },
           { "nome": "Blusa Tânia", "cor": "Amarelo", "preco": "85,00", "detalhe": "Blusa em tela, aqui com short amarelo de cós alto.", "foto": "027", "foco": "45% 50%" }
         ] },
         { "layout": "par", "itens": [
-          { "nome": "Camiseta Tela Azul", "detalhe": "Com short marinho.", "foto": "014", "foco": "52% 50%" },
+          { "nome": "Blusa Tânia", "cor": "Azul", "preco": "85,00", "detalhe": "Blusa em tela, aqui com short marinho.", "foto": "014", "foco": "52% 50%" },
           { "nome": "Baby Look Azul", "detalhe": "Com short amarelo de cós alto.", "foto": "013", "foco": "48% 50%" }
         ] },
         { "layout": "cheia", "nome": "Baby Look Rosa", "detalhe": "Com short verde-militar.", "foto": "022", "foco": "50% 50%" }
