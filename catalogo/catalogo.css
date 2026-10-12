@@ -214,7 +214,7 @@ img { display: block; }
 .p-como { background: var(--mauve-100); }
 .p-como .toplogo { position: absolute; left: 16mm; top: 14mm; width: 30mm; }
 .p-como h1 { position: absolute; left: 16mm; top: 36mm; font: italic 500 46pt/1 var(--serif); }
-.p-como .steps { position: absolute; left: 16mm; width: 96mm; top: 70mm; display: flex; flex-direction: column; gap: 9mm; }
+.p-como .steps { position: absolute; left: 16mm; width: 96mm; top: 66mm; display: flex; flex-direction: column; gap: 7mm; }
 .p-como .step { display: grid; grid-template-columns: 15mm 1fr; }
 .p-como .step .n { font: 600 30pt/0.9 var(--serif); color: var(--mauve); }
 .p-como .step h3 { font: 600 16pt/1.1 var(--serif); margin-bottom: 1.6mm; }
@@ -234,3 +234,54 @@ img { display: block; }
 .p-fim .ig { position: absolute; left: 0; right: 0; bottom: 30mm; text-align: center; color: #fff; }
 .p-fim .wa { position: absolute; left: 0; right: 0; bottom: 22mm; text-align: center; font: 400 8.6pt/1 var(--sans); letter-spacing: .12em; color: var(--mauve-100); }
 .p-fim .ring { position: absolute; left: 30mm; width: 150mm; top: 60mm; height: 177mm; border: .35mm solid rgba(255,255,255,.35); border-radius: 75mm; }
+
+/* ---------- tamanhos (bolinhas P · M · G) ---------- */
+.sizes { display: flex; gap: 1.5mm; }
+.sz {
+  width: 6.6mm; height: 6.6mm; border-radius: 50%; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  font: 600 7.4pt/1 var(--sans); font-style: normal; letter-spacing: 0;
+}
+.sz.on { background: var(--mauve); color: #fff; }
+.sz.off { border: .3mm solid var(--mauve-300); color: var(--mauve-300); }
+.sizes.claro .sz.on { background: #fff; color: var(--mauve-700); }
+.sizes.claro .sz.off { border-color: rgba(255,255,255,.55); color: rgba(255,255,255,.6); }
+.sizes.mini { gap: 1.1mm; }
+.sizes.mini .sz { width: 5.4mm; height: 5.4mm; font-size: 6.4pt; }
+.p-foto .sizes.mini .sz.on { background: currentColor; }
+.p-foto .sizes.mini .sz.on { color: inherit; }
+
+/* legenda lateral com valor + tamanhos */
+.cap .side .sizes { margin: .4mm 0 2.6mm; }
+.side .val-s { font-size: 11pt; }
+.cap .pecas { margin-top: 2.6mm; display: flex; flex-wrap: wrap; gap: 1.2mm 6mm; font: 400 8.6pt/1.4 var(--sans); color: var(--plum-700); }
+.cap .pecas b { font-weight: 500; color: var(--plum); margin-right: .8mm; }
+
+/* par: valor + bolinhas na mesma linha */
+.cap2 .linha { display: flex; align-items: center; gap: 5mm; margin-top: 3mm; }
+.cap2 .linha .preco, .cap2 .linha .consulte { margin-top: 0; }
+
+/* grade: valor + bolinhas */
+.cap-band .vb { display: flex; flex-direction: column; align-items: flex-end; gap: 1.6mm; }
+.cap-band .vb .preco { font: 600 15pt/1 var(--serif); color: var(--plum); white-space: nowrap; }
+
+/* página cheia */
+.p-cheia .ov .linha { display: flex; align-items: center; gap: 5mm; margin-top: 3.4mm; }
+.p-cheia .ov .linha .val { margin-top: 0; }
+
+/* página de foto inteira com informações na faixa */
+.p-foto .info { width: 100%; padding: 0 3.6mm; display: flex; flex-direction: column; gap: 2.6mm; }
+.p-foto .info .pc { display: flex; flex-direction: column; gap: .6mm; }
+.p-foto .info .t { font: 500 5.6pt/1.2 var(--sans); letter-spacing: .26em; text-transform: uppercase; opacity: .85; }
+.p-foto .info .n { font: 600 13pt/1 var(--serif); }
+.p-foto .info .v { font: 400 8pt/1.2 var(--sans); }
+.p-foto .info .lk { padding-top: 2mm; border-top: .25mm solid currentColor; }
+.p-foto .info .lk .v { font: 600 11pt/1.1 var(--serif); }
+.p-foto.com-info .vert { flex: 1; justify-content: center; margin: 6mm 0; }
+.p-foto .sizes.mini .sz.on { background: var(--plum); color: #fff; }
+.p-foto .sizes.mini .sz.off { border-color: currentColor; color: inherit; opacity: .45; }
+
+/* como comprar: legenda das bolinhas */
+.p-como .legenda { display: flex; align-items: center; gap: 1.6mm; margin-top: 2.4mm; font: 400 8pt/1 var(--sans); color: var(--plum-700); }
+.p-como .legenda span { margin-right: 3mm; }
+.p-foto.com-info .info { margin-bottom: 4mm; }

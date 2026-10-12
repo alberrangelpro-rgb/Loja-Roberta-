@@ -29,8 +29,15 @@ As fotos que já vieram com nome e preço impressos aparecem inteiras, sem corte
 
 Tudo fica em **`dados.json`**:
 
-- **Preço:** acrescente `"preco": "189,90"` em qualquer peça. Sem preço, a página mostra
+- **Preço:** `"preco": "189,90"` em qualquer peça. Sem preço, a página mostra
   "Consulte valores e tamanhos".
+- **Tamanhos:** `"tamanhos": ["P", "M"]` lista os tamanhos disponíveis. No catálogo eles
+  aparecem como bolinhas P · M · G: preenchida = disponível, só o contorno = indisponível.
+- **Peças vendidas separadamente:** `"pecas": [{ "tipo": "Top", "nome": "Luanda", "preco": "140,00" }, ...]`.
+  O "look completo" é a soma das peças (ou o valor em `"look"`).
+- **Cor:** `"cor": "Vinho"` aparece ao lado da referência.
+- **Referências (Ref.)** são numeradas sozinhas, na ordem das páginas. `"continua": true`
+  repete a referência da página anterior (ex.: página de costas e detalhes).
 - **WhatsApp:** preencha `"whatsapp": "(85) 99999-9999"` em `loja`. Ele aparece em todas as
   páginas de produto, no "Como comprar" e na contracapa.
 - **Nome, detalhe e cores:** campos `nome`, `detalhe` e `cores` de cada peça.

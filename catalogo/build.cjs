@@ -40,10 +40,35 @@ function contato() {
     ? `WhatsApp ${esc(loja.whatsapp)}<br>Instagram ${esc(loja.instagram)}`
     : `Chame no direct<br>${esc(loja.instagram)}`;
 }
-function valorLateral(preco) {
-  return preco
-    ? `<span class="lbl">Valor</span><span class="preco">R$ ${esc(preco)}</span>`
-    : `<span class="lbl">Valores e tamanhos</span><span class="val">Consulte</span>`;
+const GRADE = ['P', 'M', 'G'];
+// bolinhas de tamanho: preenchida = disponível, só contorno = indisponível
+function bolinhas(t, cls = '') {
+  const disp = new Set(t || []);
+  return `<div class="sizes ${cls}">${GRADE.map((x) => `<span class="sz ${disp.has(x) ? 'on' : 'off'}">${x}</span>`).join('')}</div>`;
+}
+const rotTam = (t) => (t && t.length > 1 ? 'Tamanhos' : 'Tamanho');
+const num = (v) => parseFloat(String(v).replace(/\./g, '').replace(',', '.'));
+const brl = (x) => x.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+// preço do look completo: o informado ou a soma das peças (padrão do catálogo antigo)
+function lookTotal(p) {
+  if (p.look) return p.look;
+  if (p.pecas && p.pecas.length > 1 && p.pecas.every((x) => x.preco)) return brl(p.pecas.reduce((a, x) => a + num(x.preco), 0));
+  return '';
+}
+const temDados = (p) => !!(p.preco || lookTotal(p) || (p.tamanhos && p.tamanhos.length));
+const kicker = (p) => [`Ref. ${p.ref}`, p.cor, p.nota].filter(Boolean).map(esc).join(' · ');
+const pecasHTML = (p) => (p.pecas && p.pecas.length
+  ? `<p class="pecas">${p.pecas.map((x) => `<span><b>${esc(x.tipo)} ${esc(x.nome)}</b>${x.preco ? ` R$&nbsp;${esc(x.preco)}` : ''}</span>`).join('')}</p>`
+  : '');
+function valorLateral(p) {
+  const look = lookTotal(p);
+  const partes = [];
+  if (look) partes.push(`<span class="lbl">Look completo</span><span class="preco">R$ ${esc(look)}</span>`);
+  else if (p.preco) partes.push(`<span class="lbl">Valor</span><span class="preco">R$ ${esc(p.preco)}</span>`);
+  if (p.tamanhos && p.tamanhos.length) partes.push(`<span class="lbl">${rotTam(p.tamanhos)}</span>${bolinhas(p.tamanhos)}`);
+  if (!partes.length) return `<span class="lbl">Valores e tamanhos</span><span class="val">Consulte</span>`;
+  if (!(p.tamanhos && p.tamanhos.length)) partes.push(`<span class="lbl">Tamanhos</span><span class="val val-s">Consulte</span>`);
+  return partes.join('');
 }
 const foot = (sec, n) =>
   `<div class="foot">${logo()}<span class="mid">${esc(sec)}</span><span class="num">${String(n).padStart(2, '0')}</span></div>`;
@@ -118,12 +143,13 @@ const P = {
   cap(p) {
     return `<div class="cap">
       <div class="main">
-        <div class="ref">Ref. ${esc(p.ref)}${p.nota ? ` · ${esc(p.nota)}` : ''}</div>
+        <div class="ref">${kicker(p)}</div>
         <h2 class="nome">${esc(p.nome)}</h2>
         <p class="det">${esc(p.detalhe)}</p>
+        ${pecasHTML(p)}
         ${p.cores ? `<p class="cores"><b>Cores</b>${esc(p.cores)}</p>` : ''}
       </div>
-      <div class="side">${valorLateral(p.preco)}<span class="contato">${contato()}</span></div>
+      <div class="side">${valorLateral(p)}<span class="contato">${contato()}</span></div>
     </div>`;
   },
 
@@ -146,11 +172,13 @@ const P = {
 
   par(p, sec, n) {
     const half = (i) => `<div class="half">
-        <div class="ref">Ref. ${esc(i.ref)}</div>
+        <div class="ref">${kicker(i)}</div>
         <h2 class="nome">${esc(i.nome)}</h2>
         <p class="det">${esc(i.detalhe)}</p>
         ${i.cores ? `<p class="cores"><b>Cores</b>${esc(i.cores)}</p>` : ''}
-        ${i.preco ? `<p class="preco">R$ ${esc(i.preco)}</p>` : `<p class="consulte">Consulte valores e tamanhos</p>`}
+        ${temDados(i)
+          ? `<div class="linha">${i.preco ? `<p class="preco">R$ ${esc(i.preco)}</p>` : '<p class="consulte">Consulte valores</p>'}${i.tamanhos && i.tamanhos.length ? bolinhas(i.tamanhos) : ''}</div>`
+          : `<p class="consulte">Consulte valores e tamanhos</p>`}
       </div>`;
     return `<section class="page p-par">
       <div class="ph ph-duo">${p.itens.map((i) => img(i.foto, i.foco)).join('')}</div>
@@ -166,9 +194,11 @@ const P = {
         .map((id, k) => `<div class="cell">${img(id, f[id])}<span class="chip">${esc(p.legendas[k])}</span></div>`)
         .join('')}</div>
       <div class="cap-band">
-        <div><div class="ref">Ref. ${esc(p.ref)} · ${p.fotos.length} cores</div><h2 class="nome" style="margin-top:2mm">${esc(p.nome)}</h2></div>
+        <div><div class="ref">Ref. ${esc(p.ref)} · ${new Set(p.legendas.map((l) => l.split(' · ')[0])).size} cores</div><h2 class="nome" style="margin-top:2mm">${esc(p.nome)}</h2></div>
         <p class="det">${esc(p.detalhe)}</p>
-        <div class="val">${p.preco ? `R$ ${esc(p.preco)}` : 'Consulte valores<br>e tamanhos'}</div>
+        ${temDados(p)
+          ? `<div class="vb">${p.preco ? `<span class="preco">R$ ${esc(p.preco)}</span>` : ''}${p.tamanhos ? bolinhas(p.tamanhos) : ''}</div>`
+          : `<div class="val">Consulte valores<br>e tamanhos</div>`}
       </div>
       ${foot(sec, n)}
     </section>`;
@@ -180,10 +210,12 @@ const P = {
       <div class="shade"></div>
       ${logo('toplogo')}
       <div class="ov">
-        <div class="ref">Ref. ${esc(p.ref)}</div>
+        <div class="ref">${kicker(p)}</div>
         <h2 class="nome">${esc(p.nome)}</h2>
         <p class="det">${esc(p.detalhe)}</p>
-        <p class="val">${p.preco ? `R$ ${esc(p.preco)}` : 'Consulte valores e tamanhos'}</p>
+        ${temDados(p)
+          ? `<div class="linha">${p.preco ? `<p class="val">R$ ${esc(p.preco)}</p>` : ''}${p.tamanhos ? bolinhas(p.tamanhos, 'claro') : ''}</div>`
+          : '<p class="val">Consulte valores e tamanhos</p>'}
       </div>
       ${foot(sec, n)}
     </section>`;
@@ -195,10 +227,17 @@ const P = {
     const strip = 210 - w;
     const slim = strip < 20;
     const legenda = p.ref ? `Ref. ${p.ref} · ${p.nome}${p.nota ? ` · ${p.nota}` : ''}` : sec;
-    return `<section class="page p-foto${slim ? ' slim' : ''}" style="background:${p.cor || 'var(--mauve)'};color:${p.texto_cor || '#fff'}">
+    const look = lookTotal(p);
+    const info = !slim && temDados(p)
+      ? `<div class="info">${(p.pecas || []).map((x) => `<div class="pc"><span class="t">${esc(x.tipo)}</span><span class="n">${esc(x.nome)}</span><span class="v">R$ ${esc(x.preco)}</span></div>`).join('')}
+          ${look ? `<div class="pc lk"><span class="t">Look completo</span><span class="v">R$ ${esc(look)}</span></div>` : p.preco ? `<div class="pc lk"><span class="v">R$ ${esc(p.preco)}</span></div>` : ''}
+          ${p.tamanhos ? `<span class="t">${rotTam(p.tamanhos)}</span>${bolinhas(p.tamanhos, 'mini')}` : ''}</div>`
+      : '';
+    return `<section class="page p-foto${slim ? ' slim' : ''}${info ? ' com-info' : ''}" style="background:${p.cor_fundo || 'var(--mauve)'};color:${p.texto_cor || '#fff'}">
       <div class="strip" style="width:${strip.toFixed(2)}mm">
         ${slim ? '<span></span>' : `<div class="logo mini" style="color:inherit;width:${Math.min(strip - 9, 22).toFixed(1)}mm">${LOGO}</div>`}
         <div class="vert">${slim ? '' : `<span class="rot">${esc(p.rotulo)}</span>`}<span class="vref">${esc(legenda)}</span></div>
+        ${info}
         <span class="pnum">${String(n).padStart(2, '0')}</span>
       </div>
       <img class="fit" src="${src(p.foto)}" style="width:${w.toFixed(2)}mm" alt="">
@@ -208,7 +247,8 @@ const P = {
   como(n) {
     const c = data.como_comprar_foto;
     const passos = [
-      ['Escolha seus looks', 'Anote a referência (Ref.) de cada peça que você amou neste catálogo.'],
+      ['Escolha seus looks', 'Anote a referência (Ref.) e a cor de cada peça que você amou neste catálogo.'],
+      ['Confira o tamanho', 'As bolinhas preenchidas mostram os tamanhos disponíveis de cada peça.'],
       ['Fale com a gente', loja.whatsapp
         ? `Envie as referências e o seu tamanho pelo WhatsApp ${loja.whatsapp} ou pelo direct ${loja.instagram}.`
         : `Envie as referências e o seu tamanho pelo direct ${loja.instagram}.`],
@@ -217,7 +257,7 @@ const P = {
     return `<section class="page p-como">
       ${logo('toplogo')}
       <h1>Como comprar</h1>
-      <div class="steps">${passos.map(([t, d], i) => `<div class="step"><span class="n">${i + 1}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></div>`).join('')}</div>
+      <div class="steps">${passos.map(([t, d], i) => `<div class="step"><span class="n">${i + 1}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p>${i === 1 ? '<div class="legenda"><i class="sz on">P</i><span>disponível</span><i class="sz off">M</i><span>indisponível</span></div>' : ''}</div></div>`).join('')}</div>
       <div class="box"><div class="kicker">Atendimento</div><div class="ig">${esc(loja.instagram)}</div>${loja.whatsapp ? `<div class="wa">WhatsApp ${esc(loja.whatsapp)}</div>` : ''}</div>
       <p class="aviso">${esc(loja.aviso)}</p>
       <div class="arch-line"></div>
@@ -238,7 +278,20 @@ const P = {
 };
 
 // ---------------------------------------------------------------- montagem
+// numera as referências na ordem das páginas; "continua" repete a anterior
+function numerarRefs() {
+  let k = 0;
+  const pad = (x) => String(x).padStart(2, '0');
+  for (const s of data.secoes) {
+    for (const p of s.paginas) {
+      if (p.itens) p.itens.forEach((i) => { i.ref = pad(++k); });
+      else if (p.nome) p.ref = pad(p.continua ? k : ++k);
+    }
+  }
+}
+
 function montar() {
+  numerarRefs();
   const paginas = [];
   // 1: capa, 2: boas-vindas, 3: sumário
   let n = 4;
