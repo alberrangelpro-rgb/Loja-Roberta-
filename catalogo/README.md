@@ -63,6 +63,8 @@ node build.cjs --png                 # também salva prévias em saida/previa/
 - `fotos-hd/` tem as fotos ampliadas 2× com IA (Real-ESRGAN, `ferramentas/upscale.py`)
   para ficarem nítidas na impressão. As que vieram de print de tela tiveram a linha preta
   lateral removida (`ferramentas/aparar_bordas.py`).
+- `fotos-hd/040.jpg` teve o preço impresso da Legging Isabela trocado de 250,00 para 210,00
+  (`ferramentas/corrigir_preco_040.py`, usando as letras da própria foto).
 - `fotos-web/` tem as versões leves usadas no PDF para WhatsApp.
 
 A logo foi vetorizada (`marca/logo-mova.svg`) para ficar nítida em qualquer tamanho.

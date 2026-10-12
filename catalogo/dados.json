@@ -54,7 +54,7 @@
       "paginas": [
         { "layout": "duo", "nome": "Regata Preta + Legging Vinho", "detalhe": "Regata nadador sobre top e legging canelada.", "fotos": ["011", "004"], "foco": { "011": "50% 40%", "004": "50% 40%" } },
         { "layout": "duo", "nome": "Conjunto Giovana", "cor": "Preto", "preco": "137,00", "detalhe": "Top de um ombro só e legging com brilho.", "fotos": ["015", "005"], "foco": { "015": "50% 50%", "005": "50% 50%" } },
-        { "layout": "trio", "nome": "Top Luanda + Legging Isabela", "cor": "Preto", "detalhe": "Top com alças cruzadas no pescoço e franzido frontal, com legging de cós alto.", "pecas": [{ "tipo": "Top", "nome": "Luanda", "preco": "140,00" }, { "tipo": "Legging", "nome": "Isabela", "preco": "200,00" }], "look": "340,00", "tamanhos": ["M"], "fotos": ["039", "037", "038"], "foco": { "039": "45% 50%", "037": "50% 30%", "038": "50% 40%" } },
+        { "layout": "trio", "nome": "Top Luanda + Legging Isabela", "cor": "Preto", "detalhe": "Top com alças cruzadas no pescoço e franzido frontal, com legging de cós alto.", "pecas": [{ "tipo": "Top", "nome": "Luanda", "preco": "140,00" }, { "tipo": "Legging", "nome": "Isabela", "preco": "210,00" }], "look": "350,00", "tamanhos": ["M"], "fotos": ["039", "037", "038"], "foco": { "039": "45% 50%", "037": "50% 30%", "038": "50% 40%" } },
         { "layout": "par", "itens": [
           { "nome": "Conjunto Caramelo", "detalhe": "Top de alças finas e legging de cós alto.", "foto": "006", "foco": "50% 50%" },
           { "nome": "Conjunto Tay", "cor": "Marinho", "preco": "236,00", "tamanhos": ["P"], "detalhe": "Top nadador e legging com vivo branco lateral.", "foto": "060", "foco": "50% 50%" }
