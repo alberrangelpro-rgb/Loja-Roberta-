@@ -11,7 +11,7 @@
   "_como_preencher": "Referências (Ref.) são numeradas sozinhas, na ordem das páginas. Em cada peça: preco = valor do conjunto/peça; pecas + look = peças vendidas separadamente; tamanhos = tamanhos disponíveis (bolinhas preenchidas); continua = true repete a referência da página anterior.",
   "capa": { "modelo": "revista", "foto": "087", "foco": "50% 22%" },
   "abertura": { "foto": "058", "foco": "50% 30%", "vitrine": ["016", "066", "097"] },
-  "como_comprar_foto": { "foto": "053", "foco": "50% 25%" },
+  "como_comprar_foto": { "foto": "089", "foco": "50% 40%" },
   "secoes": [
     {
       "numero": "01",
